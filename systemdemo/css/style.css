@@ -1,0 +1,93 @@
+#divall{
+    margin-right: auto;
+    margin-left: auto;
+    width: 1000px;
+
+
+}
+.top{
+    background-color:  #a8d08c;
+    margin-top: 20px;
+    padding: 5px;    
+    margin-left: 3%;
+}
+h1{
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+table,
+table{
+    margin-right: auto;
+    margin-left: auto;
+    border:1px solid black ;
+    border-collapse:collapse;
+    
+   }
+   td{
+       border:1px solid black ;
+       border-collapse:collapse;
+       padding-left: 10px;
+       padding-right: 10px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       background-color: #cdd4ea;
+       
+   }
+
+   th{
+    border:1px solid black ;
+    border-collapse:collapse;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   }
+
+
+thead{
+    border:1px solid black ;
+    border-collapse:collapse;
+    text-align: start;
+    background-color:#4472c4;
+    color:white;
+    text-align : left;
+}
+
+.yoteibutton{
+    display: inline;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.texttd{
+    padding: 0px;
+}
+.textarea{
+    background-color: #cdd4ea;
+    margin: 0;
+    border: none;
+    padding: 10px;
+
+
+}
+.leftpadding{
+    text-align: start;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.bottombutton{
+display: flex;
+justify-content: space-between;
+}
+.regist{
+    background-color: #a8d08c;
+    margin: 10px;
+    font-size: 20px;
+    padding:5px,10px;
+    left: 50%;
+    
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_zf.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <header><div><h1>zoom予定入力フォーム</h1></div></header>
+    -->
+    <div class = "cform">
+        <div inner>
+        <form action="form_check.php">
+            <span>タイトル</span><br>
+            <input type="text" name = "title" >
+            <input type="date" name = "calendar">
+
+            <br>
+            <span>時間</span><br>
+            <input type="time"name = "start-time">
+            <input type="time" name = "end-time">
+            <input type="checkbox" name="zoom" id="1"><span>zoom</span>
+            <br>
+            <span>説明</span><br>
+            <input type="text" name = "content" class = "contentarea">
+            <br>
+            <span>参加者</span><br>
+            <input type="text" name = "member" class ="membertext">
+            <br>
+            <input type="submit" value ="確認" class = "regist">
+        </form>
+        </div>
+    </div>
+    <form action="demotop.html">
+        <input type="submit" value="トップに戻る"class = "top">
+    </form>
+</body>
+</html>

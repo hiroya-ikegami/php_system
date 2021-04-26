@@ -1,0 +1,105 @@
+﻿
+/*ページ*/
+#page{
+	width:980px;
+	margin:0 auto;
+}
+
+/*管理者画面*/
+#pageTop
+{
+padding:10px 0 0 5px
+}
+
+#page .top
+{
+font-size:40px;
+color:#000000;
+
+}
+
+
+/*タグ*/
+
+#pageBodyMain ,th1
+{
+padding:0 0 0 200px;
+
+}
+
+#pageBodyMain th,td
+{
+border:solid 1px #000000;
+}
+
+#pageBodyMain th
+{
+background-color:#bbe2f1;
+font-size:20px
+}
+
+/*ログアウトボタン*/
+
+#pageBody .l
+{
+padding:20px 0 0 10px
+}
+#pageBody .l a
+{
+font-size:15px;
+font-weight:bold;
+text-decoration:none;
+color:#000000;
+background-color:bee0c2;
+padding: 10px 30px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+/*戻るボタン*/
+
+#pageBodySub .b
+{
+padding:30px 0 0 150px
+}
+#pageBodySub .b a
+{
+font-size:15px;
+font-weight:bold;
+text-decoration:none;
+color:#bee0c2;
+background-color:bee0c2;
+padding: 10px 30px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+/*削除ボタン*/
+
+#pageBodySub .d
+{
+padding:30px 0 0 150px
+}
+#pageBodySub .d a
+{
+font-size:15px;
+font-weight:bold;
+text-decoration:none;
+color:#ea5550;
+background-color:bee0c2;
+padding: 10px 30px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}

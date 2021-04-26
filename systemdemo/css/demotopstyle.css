@@ -1,0 +1,275 @@
+﻿body{ 
+	color:#CCCCCC;
+}
+
+/*ページ*/
+#page{
+	width:980px;
+	margin:0 auto;
+}
+
+/*トップ画面*/
+#pageTop
+{
+padding:10px 0 0 10px
+}
+
+#page .top
+{
+font-size:35px;
+color:#000000;
+
+}
+
+/*ZOOM*/
+#pageBodyMain .h
+{
+padding:0 0 0 100px
+}
+
+#pageBodyMain .h
+{
+font-size:25px;
+color:#ffffff;
+
+}
+
+/*カレンダー*/
+
+#pageBodyMain .k
+{
+
+padding:0 0 0 120px
+
+}
+
+/*予約ボタン*/
+
+#pageBodyMain .btn
+{
+
+padding:0 0 0 100px
+
+}
+#pageBodyMain .btn 
+a{
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:#FFFFFF;
+background-color:#00bfff;
+padding:10px 20px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn a:hover
+{
+opacity:0.7;
+}
+
+/*予約表ボタン*/
+
+#pageBodyMain .btn1
+{
+
+padding:0 0 0 100px
+
+}
+#pageBodyMain .btn1
+a{
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:#FFFFFF;
+background-color:#00bfff;
+padding:10px 20px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn1 a:hover
+{
+opacity:0.7;
+}
+
+/*予約入力ボタン*/
+
+#pageBodyMain .btn2
+{
+
+padding:50px 0 0 250px
+
+}
+#pageBodyMain .btn2 
+a{
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:#FFFFFF;
+background-color:#9b72b0;
+padding:10px 20px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn2 a:hover
+{
+opacity:0.7;
+}
+/*社員予定ボタン*/
+
+#pageBodyMain .btn3
+{
+
+padding:0 0 0 250px
+
+}
+#pageBodyMain .btn3 
+a{
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:#FFFFFF;
+background-color:#a7d28d;
+padding:10px 20px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn3 a:hover
+{
+opacity:0.7;
+}
+
+/*前の月ボタン*/
+
+#pageBodyMain .btn4
+{
+
+padding:50px 0 0 250px
+
+}
+#pageBodyMain .btn4 
+a{
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:#24140e;
+background-color:#fff799;
+padding:10px 20px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn4 a:hover
+{
+opacity:0.7;
+}
+
+/*次の月ボタン*/
+
+#pageBodyMain .btn5
+{
+
+padding:5px 0 0 100px
+
+}
+#pageBodyMain .btn5 
+a{
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+color:#24140e;
+background-color:#fff799;
+padding:10px 20px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn5 a:hover
+{
+opacity:0.7;
+}
+
+/*設定ボタン*/
+
+#pageBodyMain .btn6
+{
+
+padding:0 0 0 5px
+
+}
+#pageBodyMain .btn6
+a{
+font-size:15px;
+font-weight:bold;
+text-decoration:none;
+color:#ffffff;
+background-color:#bee0c2;
+padding:6px 10px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn6 a:hover
+{
+opacity:0.7;
+}
+
+/*ログアウトボタン*/
+
+#pageBodyMain .btn7
+{
+
+padding:0 0 0 1200px
+
+}
+#pageBodyMain .btn7
+a{
+font-size:15px;
+font-weight:bold;
+text-decoration:none;
+color:#ffffff;
+background-color:#bee0c2;
+padding:6px 10px;
+border-radius:5px;
+background-image:line-gradient(to bottom,#92CDDB,#058BA9);
+border:1px solid #058BA9;
+box-shadow:1px 1px 0 #9DDDED inset;
+text-shadow:0px -1px 0 #333333;
+display:inline-block;
+}
+
+#pageBodyMain .btn7 a:hover
+{
+opacity:0.7;
+}
