@@ -133,7 +133,7 @@ label{
 
 
 /* テーブル７つ分ある　チェック操作　sass使いたい…*/
-#remote1,#arrive1,#s_other1,#closed1{
+#remoteMON,#arriveMON,#s_otherMON,#closedMON{
     display: none;
 }
 label{
@@ -142,16 +142,156 @@ label{
     border:1px solid black;
     background: lavender;
 }
-#remote1:checked + label{
+#remoteMON:checked + label{
     background:  wheat;
 }
-#arrive1:checked + label{
+#arriveMON:checked + label{
     background:  wheat;
 }
-#s_other1:checked + label{
+#s_otherMON:checked + label{
     background:  wheat;
 }
 
-#closed1:checked + label{
+#closedMON:checked + label{
+    background: yellowgreen;
+}
+
+/*火曜日*/
+#remoteTUE,#arriveTUE,#s_otherTUE,#closedTUE{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:TUEpx solid black;
+    background: lavender;
+}
+#remoteTUE:checked + label{
+    background:  wheat;
+}
+#arriveTUE:checked + label{
+    background:  wheat;
+}
+#s_otherTUE:checked + label{
+    background:  wheat;
+}
+
+#closedTUE:checked + label{
+    background: yellowgreen;
+}
+/*水曜*/
+#remoteWED,#arriveWED,#s_otherWED,#closedWED{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteWED:checked + label{
+    background:  wheat;
+}
+#arriveWED:checked + label{
+    background:  wheat;
+}
+#s_otherWED:checked + label{
+    background:  wheat;
+}
+
+#closedWED:checked + label{
+    background: yellowgreen;
+}
+
+/*木曜*/
+#remoteTHU,#arriveTHU,#s_otherTHU,#closedTHU{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteTHU:checked + label{
+    background:  wheat;
+}
+#arriveTHU:checked + label{
+    background:  wheat;
+}
+#s_otherTHU:checked + label{
+    background:  wheat;
+}
+
+#closedTHU:checked + label{
+    background: yellowgreen;
+}
+
+#remoteFRI,#arriveFRI,#s_otherFRI,#closedFRI{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteFRI:checked + label{
+    background:  wheat;
+}
+#arriveFRI:checked + label{
+    background:  wheat;
+}
+#s_otherFRI:checked + label{
+    background:  wheat;
+}
+
+#closedFRI:checked + label{
+    background: yellowgreen;
+}
+
+#remoteSAT,#arriveSAT,#s_otherSAT,#closedSAT{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteSAT:checked + label{
+    background:  wheat;
+}
+#arriveSAT:checked + label{
+    background:  wheat;
+}
+#s_otherSAT:checked + label{
+    background:  wheat;
+}
+
+#closedSAT:checked + label{
+    background: yellowgreen;
+}
+
+#remoteSUN,#arriveSUN,#s_otherSUN,#closedSUN{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteSUN:checked + label{
+    background:  wheat;
+}
+#arriveSUN:checked + label{
+    background:  wheat;
+}
+#s_otherSUN:checked + label{
+    background:  wheat;
+}
+
+#closedSUN:checked + label{
     background: yellowgreen;
 }

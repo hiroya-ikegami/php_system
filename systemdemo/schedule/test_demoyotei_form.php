@@ -1,3 +1,7 @@
+<?php 
+$ym = (isset($get))
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +18,7 @@
         </form>
     <form action="demoyotei_list.php" method="post">
     <h1 id ="sche_title">予定入力画面　?月</h1>
+    <p id ="today">今日の日付</p>
     <table>
         <thead>
         <tr><th>日</th><th>曜日</th><th>勤務場所</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
@@ -25,32 +30,33 @@
         foreach($weeklist as $value){?>
             <?=$value?>
             <tr>
-                <td id = "date<?=$value?>">week</td>
-                <td><?=$value?></td>
+                <td id = "date<?=$value?>">date</td>
+                <td id = "day<?=$value?>"><?=$value?></td>
             <span >    
             <td>
-            <input type="radio" name = "work<?=$value?>" value = "1" id = "arrive<?=$value?>"><label for = "arrive<?=$value?>">出社</label>
+            <input type="radio" name = "work<?=$value?>" value = "1" id = "arrive<?=$value?>"checked = "checked" ><label for = "arrive<?=$value?>">出社</label>
             <input type="radio" name = "work<?=$value?>" value = "2" id = "remote<?=$value?>"><label for = "remote<?=$value?>">在宅</label>
             <input type="radio" name = "work<?=$value?>" value = "3" id = "s_other<?=$value?>"><label for = "s_other<?=$value?>">その他</label>
-            <input type="radio" name = "work<?=$value?>" value = "4" id = "closed<?=$value?>"><label for = "closed<?=$value?>">有休</label>
+            <input type="radio" name = "work<?=$value?>" value = "4" id = "closed<?=$value?>"><label for = "closed<?=$value?>">休日</label>
             </td>
-            <td >data</td>
+            <td ><input type="text" class = "textarea" name = "company<?=$value?>"></td>
+            <!-- 
             <td><input type="text" class = "textarea"　name = "p_schedule<?=$value?>"></td>
-            <td><input type="text" class = "textarea" name = "memo<?=$value?>" ></td>
+            <td><input type="text" class = "textarea"　name = "test<?=$value?>"></td>
+            -->
+            <td><input type="text" class = "textarea" name = "person<?=$value?>"></td>
+            <td><input type="text" class = "textarea" name = "memo<?=$value?>"></td>
             </tr>
-            <?php }?>
+            <?php };?>
 
     </table>
 
-    <div class = "bottombutton">
-        <input type="submit" value ="前月へ" class = "regist">
-
-            <input type="submit" value ="確認" class = "regist" id ="reg_check">
-        
-        <input type="submit" value ="次月へ" class = "regist">
+        <div class = "bottombutton" onsubmit="">
+        <input type="submit" value ="確認" class = "regist" id ="reg_check">
+    </form>
+    <input type="button" value ="来週へ" class = "regist" onclick="nextweek()">
+    <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
     </div>
-</form>
-    
 </div>
 <script src="schedule.js"></script>
 </body>
