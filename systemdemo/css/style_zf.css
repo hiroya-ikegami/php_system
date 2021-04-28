@@ -1,0 +1,32 @@
+form{
+ width: 350px;
+}
+.h1id{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+header{
+    display: flex;
+}
+.cform{
+
+    background-color: gainsboro;
+    border-radius: 40px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    width: 500px;
+}
+.inner{
+    display: inline-block;
+    }
+.contentarea{
+    width: 80%;
+    height: 100px;
+}
+.membertext{
+    width: 80%;
+}
