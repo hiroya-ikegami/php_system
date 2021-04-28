@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta https-equiv="Content-Type"content="text/html;charset=UTF-8">
-    <title>これでいいですか？</title>
+    <title>確認画面</title>
 </head>
 <body>
     <?php
@@ -10,15 +10,19 @@
     $birth=$_POST['birth'];
     $mail=$_POST['mail'];
     $pass=$_POST['pass'];
+    $pass2=$_POST['pass2'];
 
     $shimei=htmlspecialchars($shimei);
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
+    $pass2=htmlspecialchars($pass2);
+    $flag=0;
 
     if($shimei=="")
     {
         print"氏名が入力されていません。<br/>\n";
+        $flag=1;
     }else{
     print"氏名";
     print $shimei;
@@ -28,6 +32,7 @@
 if($birth=="")
 {
       print"誕生日が入力されていません。<br/>\n";
+      $flag=1;
 }else{
 print"誕生日";
 print $birth;
@@ -37,6 +42,7 @@ print"<br/>";
 if($mail=="")
 {
       print"メールアドレスが入力されていません。<br/>\n";
+        $flag=1;
 }else{
 print"メールアドレス";
 print $mail;
@@ -46,10 +52,16 @@ print"<br/>";
 if($pass=="")
 {
       print"パスワードが入力されていません。<br/>\n";
+      $flag=1;
 }else{
 print"パスワード";
 print $pass;
 print"<br/>";
+}
+if($pass!=$pass2)
+{
+    print"パスワードが間違っています。<br/>\n";
+    $flag=1;
 }
 
 if($shimei==""||$birth==""||$mail==""||$pass=="")
@@ -57,15 +69,12 @@ if($shimei==""||$birth==""||$mail==""||$pass=="")
     print"<form>";
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
-}else{
-    print'<form method="post"action="thanks.php">';
-    print '<input name="shimei"type="hidden"value="'.$shimei.'">';
-	print '<input name="birth"type="hidden"value="'.$birth.'">';
-	print '<input name="mail"type="hidden"value="'.$mail.'">';
-	print '<input name="pass"type="hidden"value="'.$pass.'">';
-	print '<input type="button"onclick="history.back()"value="戻る">';
-	print '<input type="submit"value="OK">';
-	print '</form>';
+    $flag=1;
+}
+if($flag == 0)
+{
+ print "ようこそ。";
+ print "<a href='demotop.html'>トップへ</a>";
 }
 ?>
 </body>

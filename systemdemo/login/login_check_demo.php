@@ -40,8 +40,5 @@ if($flag == 0)
  print "<a href='demotop.html'>トップへ</a>";
 }
 ?>
-
-
-
 </body>
 </html>
