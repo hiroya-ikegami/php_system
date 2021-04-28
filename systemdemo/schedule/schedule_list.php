@@ -47,7 +47,7 @@ print_r($work);
             print $registarea;
             ?>
             <tr>
-                <td id = "date<?=$value?>">week</td>
+                <td id = "date<?=$value?>">date</td>
                 <td><?=$value?></td>
             <td><?=$workarea[$registarea-1] ?></td>
             <td><?=$company[$cou]?></td>
@@ -60,13 +60,30 @@ print_r($work);
 
     <div class = "bottombutton">
         
-        <form action="schedule_list.php" method = "post">
+        <form action="schedule_done.php" method = "post">
+            <?php
+            /*
+            $swork = serialize($work);
+            $swork = base64_encode($swork);
+            $scompany = serialize($company);
+            $sperson = serialize($person);
+            $smemo = serialize($memo);
+            */
+            $swork = json_encode($work);
+            print($swork);
+            $scompany = serialize($company);
+            $sperson = serialize($person);
+            $smemo = serialize($memo);
+            
+            ?>
+            <input type="hidden" name = "swork" value="<?=$swork?>">
+            <input type="hidden" name = "scompany" value="<?=$scompany?>">
+            <input type="hidden" name = "sperson" value ="<?=$sperson?>">
+            <input type="hidden" name = "smemo" value ="<?=$smemo?>">
             <input type="submit" name = "done" value ="登録" class = "regist" id ="reg_check">
             <?php
             //$post = $_POST["done"];
-            if(isset ($POST["done"])){
-                print "登録しました";
-            }
+            
             ?>
         </form>
         <button type="button" onclick="history.back()">戻る</button>

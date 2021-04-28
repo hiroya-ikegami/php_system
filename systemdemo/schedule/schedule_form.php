@@ -17,9 +17,7 @@ $ym = (isset($get))
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="schedule_list.php" method="post">
-    <h1 >予定入力画面　<span id = "sche_year">？</span>年<span id ="sche_month">？</span>月<span id ="sche_date"></span>日</h1>
-    <p id ="today">今日の日付</p>
-    <table>
+    <h1 >予定入力画面　<span id = "sche_year">？</span>年<span id ="sche_month">？</span>月<span id ="sche_date"></span>日</h1>    <table>
         <thead>
         <tr><th>日</th><th>曜日</th><th>勤務場所</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
         </thead>
@@ -46,7 +44,8 @@ $ym = (isset($get))
             -->
             <td><input type="text" class = "textarea" name = "person<?=$value?>"></td>
             <td><input type="text" class = "textarea" name = "memo<?=$value?>"></td>
-            </tr>
+            </tr><p hidden id = "date<?=$value?>"></p><input type="hidden" id = "datepost<?=$value?>" value="?">
+            
             <?php };?>
 
     </table>

@@ -87,6 +87,7 @@ function setCalendar(yy,mm,dd){
             console.log(dd+step);
         }
     }
+    console.log(todaylist);
     dateMON.innerHTML = todaylist[0];
     dateTUE.innerHTML = todaylist[1];
     dateWED.innerHTML = todaylist[2];
@@ -94,6 +95,15 @@ function setCalendar(yy,mm,dd){
     dateFRI.innerHTML = todaylist[4];
     dateSAT.innerHTML = todaylist[5];
     dateSUN.innerHTML = todaylist[6];
+    //document.getElementById( "target" ).value = "SYNCER" ;
+    document.getElementById("datepostMON").value = todaylist[0];
+    document.getElementById("datepostTUE").value = todaylist[1];
+    document.getElementById("datepostWED").value = todaylist[2];
+    document.getElementById("datepostTHU").value = todaylist[3];
+    document.getElementById("datepostFRI").value = todaylist[4];
+    document.getElementById("datepostSAT").value = todaylist[5];
+    document.getElementById("datepostSUN").value = todaylist[6];
+
 }
 
 
