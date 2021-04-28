@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_yf.css">
+    
+    <title>demo</title>
+</head>
+<body>
+    <div id = "divall">
+        <form action="demotop.html">
+            <input type="submit" value="トップに戻る"class = "top">
+        </form>
+    <form action="demoyotei_list.php" method="post">
+    <h1 id = "sche_title">予定入力画面</h1>
+    <p>test </p>
+    <table>
+        <thead>
+        <tr><th>日</th><th>曜日</th><th>勤務場所</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
+        </thead>
+        
+        <tr><td id = "date1"></td>
+        <td>MON</td>
+        <td>
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>
+        </td>
+        <td ></td>
+        <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+        <td><input type="text" class = "textarea1" name = "memo1" ></td>
+        </tr>
+
+        <tr><td id = "date2" ></td>
+            <td>TUE</td>
+            <td>
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>
+        </td>
+        <td ></td>
+        <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+        <td><input type="text" class = "textarea" name = "memo1" ></td>
+        </tr>
+
+        <tr><td>3</td>
+            <td>WED</td>
+            <td>
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>
+        </td>
+        <td ></td>
+            <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+            <td><input type="text" class = "textarea" name = "memo1" ></td>
+            </tr>
+
+        <tr><td>4</td>
+            <td>THU</td>
+            <td>
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>                        
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>
+            </td>
+            <td ></td>
+            <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+            <td><input type="text" class = "textarea" name = "memo1" ></td>                
+            </tr>
+
+        <tr><td>5</td>
+            <td>FRI</td>
+            <td>
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>                
+            </td>
+            <td ></td>
+            <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+            <td><input type="text" class = "textarea" name = "memo1" ></td>
+            </tr>
+
+        <tr><td>6</td>
+            <td>SAT</td>
+            <td>
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>    
+            </td>
+            <td ></td>
+            <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+            <td><input type="text" class = "textarea" name = "memo1" ></td>
+            </tr>
+
+        <tr><td>7</td>
+            <td>SUN</td>
+            <td>                                    
+            <input type="radio" name = "work1" value = "1" id = "arrive"><label for = "arrive">出社</label>
+            <input type="radio" name = "work1" value = "2" id = "remote"><label for = "remote">在宅</label>
+            <input type="radio" name = "work1" value = "3" id = "s_other"><label for = "s_other">その他</label>                           
+            <input type="radio" name = "work1" value = "4" id = "closed"><label for = "closed">有休</label>
+            </td>
+            <td ></td>
+            <td><input type="text" class = "textarea"　name = "p_schedule1"></td>
+            <td><input type="text" class = "textarea" name = "memo1" ></td>
+            </tr>
+    </table>
+
+    <div class = "bottombutton">
+        <input type="submit" value ="先週へ" class = "regist">
+
+            <input type="submit" value ="確認" class = "regist" id ="reg_check">
+        
+        <input type="submit" value ="次週へ" class = "regist">
+    </div>
+</form>
+    
+</div>
+</body>
+<script src="schedule.js"></script>
+</html>
