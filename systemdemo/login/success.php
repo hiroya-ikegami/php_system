@@ -10,7 +10,8 @@ if(!isset($_SESSION["login"])){
     exit();
 }
 $message=$_SESSION['login']."さんようこそ";
-$message=htmlspecailchars($message);
+
+$message=htmlspecialchars($message);
 ?>
 <html lang="ja">
 <head>
@@ -19,7 +20,7 @@ $message=htmlspecailchars($message);
 </head>
 <body>
 <h1>ログイン成功</h1>
-<a href="demotop.html">ホームページ</a>
+<a href="../demotop.html">ホームページ</a>
 <div class="message"><?php echo $message;?></div>
 <a href="logout.php">ログアウト</a>
 </body>

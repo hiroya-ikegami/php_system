@@ -1,33 +1,40 @@
 <?php
-if(!isset($_SESSION["login"])){
-    print'ログインされていません。<br/>';
-    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
-    print'登録がまだの方<br/>';
-    print'<a href="../demosystem/index_html">登録画面へ</a>';
-    exit();
-}
-try{
+
+//try{
 $staff_mail=$_POST['mail'];
-$staff_pass=$_POST['pass'];
+$staff_pass=$_POST['password'];
 $staff_mail=htmlspecialchars($staff_mail,ENT_QUOTES,'UTF-8');
 $staff_pass=htmlspecialchars($staff_pass,ENT_QUOTES,'UTF-8');
 
 $staff_pass=md5($staff_pass);
 
-$dsn='mysql:dbname=zoom_system;host=localhost;charset=utf8';
+/*
+$testuser = "123";
+    $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
+    $user = 'root';
+    $password = '0305';
+    $dbh = new PDO($dsn,$user,$password);
+    $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    //$sql = 'INSERT INTO zoom_schedule(name,password) VALUES (?,?)';
+    $testsql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,regist_p) VALUES('.$title.",".$calendar.",".$start_time.",".$end_time.",".$content.",".$member.",".$testuser.")";
+    print $testsql;
+    //print ($title.$calendar.$start
+*/
+$dsn='mysql:dbname=task_zoom;host=localhost;charaset=utf8';
 $user='root';
-$password='';
-$dbh=new PDO($dsn,$user,$password);
+$password='0305';
+$dbh = new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name FROM mst_staff WHERE mail=? AND password=?';
+$sql='SELECT name  FROM user WHERE mail=? AND pass=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$staff_mail;
 $data[]=$staff_pass;
 $stmt->execute($data);
 
 $dbh=null;
-$rec=$stmt>fetch(PDO::FETCH_ASSOC);
+$rec=$stmt->fetch(PDO::FETCH_ASSOC);
+
 
 if($rec=-false){
     print'メールアドレスかパスワードが間違っています。<br/>';
@@ -37,12 +44,12 @@ session_start();
 $_SESSION['login']=1;
 $_SESSION['staff_mail']=$staff_mail;
 $_SESSION['staff_pass']=$rec['pass'];
-    header('Location:demotop.html.html');
+    header('Location:../demotop.html');
     exit();
 }
-
+/*
 }
-catch(Exeption $e)
+catch(Exception $e)
 {
     print'ただいま障害により大変ご迷惑をお掛けしております。';
     exit();
