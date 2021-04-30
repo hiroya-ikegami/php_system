@@ -10,10 +10,9 @@ if(!isset($_SESSION["login"])){
 }
 $_SESSION=array();
 
-if(int_get("session.use_cookies")){
+if(isset($_COOKIE[session_name()])==true){
     setcookie(session_name(),'',time()-42000,'/');
 }
-
 session_destroy();
 ?>
 <html lang="ja">

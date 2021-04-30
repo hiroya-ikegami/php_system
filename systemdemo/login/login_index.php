@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION["login"]=$_POST["mail"];
+$_SESSION["pass"]=$_POST["pass"];
 if(!isset($_SESSION["login"])){
     print'ログインされていません。<br/>';
     print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
