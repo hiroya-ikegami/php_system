@@ -3,7 +3,10 @@
 <head>
 <mate charset=UTF-8">
 <title>demo</title>
-	<link rel="stylesheet" href="demotopstyle.css">
+	<link rel="stylesheet" href="css/demotopstyle.css">
+<link rel="stylesheet" href="css/calendar.css">
+
+<script type="text/javascript" src="js/calendar.js"></script>
 
 </head>
 <body bgcolor="#bbe2f1">
@@ -21,7 +24,7 @@
 
 <table>
 <tr>
-<td><p class="btn7"><a href="login_demo.html">ログアウト</a></td>
+<td><p class="btn7"><a href="logout.html">ログアウト</a></td>
 
 <td><p class="btn6"><a href="setei.html">設定</a></td>
 
@@ -33,15 +36,50 @@
 
 <td><p class="btn3"><a href="syainyotei.html">社員の予定</a>
 
-<p class="btn2"><a href="schedule/demoyotei_form.html">予定入力</a>
+<p class="btn2"><a href="yoteinyuryoku.html">予定入力</a>
 
-<p class="btn4"><a href="maenotuki.html">前の月</a></td>
+<p class="btn4"><button id="previous" onclick="previous()"><a >前の月</a></button></td>
 
-<td><p class="k"><iframe src="https://calendar.google.com/calendar/embed?height=450&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;src=a3Vyb2Rhc2g5QGdtYWlsLmNvbQ&amp;src=YWl0bTB0aDltanI5czI1NHF2bnU4bnBsdmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%233F51B5&amp;color=%2333B679&amp;color=%230B8043" style="border:solid 1px #777" width="576" height="450" frameborder="0" scrolling="no"></iframe></p></td>
+<td>
+ <div  class="container-calendar">
+          <h4 id="monthAndYear"></h4>
+          <div class="button-container-calendar">
+          </div>
+          
+          <table class="table-calendar" id="calendar" data-lang="ja">
+              <thead id="thead-month"></thead>
+              <tbody id="calendar-body"></tbody>
+          </table>
+          
+          <div class="footer-container-calendar">
+              <label for="month">日付指定：</label>
+              <select id="month" onchange="jump()">
+                  <option value=0>1月</option>
+                  <option value=1>2月</option>
+                  <option value=2>3月</option>
+                  <option value=3>4月</option>
+                  <option value=4>5月</option>
+                  <option value=5>6月</option>
+                  <option value=6>7月</option>
+                  <option value=7>8月</option>
+                  <option value=8>9月</option>
+                  <option value=9>10月</option>
+                  <option value=10>11月</option>
+                  <option value=11>12月</option>
+              </select>
+              <select id="year" onchange="jump()"></select>
+          </div>
+    </div>
+
+    <script src="js/calendar.js" type="text/javascript"></script>
+
+
+</p></td>
+
 <td><p class="h">ZOOM</p>
-<p class="btn"><a href="schedule_zoom/schedulezoom_form.html" >予約</a></p>
-<p class="btn1"><a href="schedule_zoom/demozoom_list.html">予約表</a>
-<p class="btn5"><a href="tuginotuki.html">次の月</a></td>
+<p class="btn"><a href="yoyaku.html" >予約</a></p>
+<p class="btn1"><a href="yoyakuhyou.html">予約表</a>
+<p class="btn5"><button id="next" onclick="next()"><a>次の月</a></button></td>
 
 </tr>
 </table>
