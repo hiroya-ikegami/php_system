@@ -1,12 +1,3 @@
-<?php
-if(!isset($_SESSION["login"])){
-   print'ログインされていません。<br/>';
-   print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
-   print'登録がまだの方<br/>';
-   print'<a href="../demosystem/index_html">登録画面へ</a>';
-   exit();
-}
-?>
 <!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

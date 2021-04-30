@@ -7,13 +7,13 @@
 <h1><font color="white": size="12px">登録確認確認</font></h1>
 <body bgcolor="lightblue">
     <?php
-    $shimei=$_POST['name'];
+    $name=$_POST['name'];
     $birth=$_POST['birth'];
     $mail=$_POST['mail'];
     $pass=$_POST['pass'];
     $pass2=$_POST['pass2'];
 
-    $shimei=htmlspecialchars($name);
+    $name=htmlspecialchars($name);
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
@@ -59,13 +59,13 @@ if($pass!=$pass2){
     print"パスワードが一致しません。<br/>";
 }
 
-if($name==""||$birth==""||$mail==""||$pass==""||$pass=="")
+if($name==""||$birth==""||$mail==""||$pass==""||$pass!=$pass2)
 {
     print"<form>";
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
 }else{
-    print'<form method="post"action="success.php">';
+    print'<form method="post"action="login/success.php">';
     print '<input name="name"type="hidden"value="'.$name.'">';
 	print '<input name="birth"type="hidden"value="'.$birth.'">';
 	print '<input name="mail"type="hidden"value="'.$mail.'">';
