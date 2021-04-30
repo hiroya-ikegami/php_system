@@ -20,6 +20,7 @@ function setCalendar(yy,mm,dd){
     sche_date.innerHTML = dd;
     //document.getElementById('month').textContent = dmonth;
     var dtoday = new Date().getDay();
+    print ("今日の曜日"+dtoday);
     //var dd = new Date().getDate();
     //console.log(dd);
 
@@ -29,7 +30,7 @@ function setCalendar(yy,mm,dd){
     var month_list = [];
     var month_end = new Date(yy, mm + 1, 0).getDate();
 
-    console.log("月末"+month_end)
+    //console.log("月末"+month_end)
     if (dtoday == 1){
         for (let step; step<7; step++){
             var todaylist = [dd+step];
@@ -61,17 +62,33 @@ function setCalendar(yy,mm,dd){
         }
     }
     if (dtoday == 4){
-        for (let step=-3; step<7; step++){
-            var todaylist = [dd+step];
-            console.log(dd+step);
-        }
+        for (let step=-3; step<5; step++){
+            ifdate = new Date().getDate()+step;
+            if(ifdate > month_end){
+                todaylist.push(ifdate-month_end);
+                month_list.push(mm+1);
+            }
+            else {
+                todaylist.push(new Date().getDate()+step);
+                console.log(new Date().getDate()+step);
+                month_list.push(mm);
+            }
+        }   
     }
     
     if (dtoday == 5){
-        for (let step=-4; step<7; step++){
-            var todaylist = [dd+step];
-            console.log(dd+step);
-        }
+        for (let step=-4; step<5; step++){
+            ifdate = new Date().getDate()+step;
+            if(ifdate > month_end){
+                todaylist.push(ifdate-month_end);
+                month_list.push(mm+1);
+            }
+            else {
+                todaylist.push(new Date().getDate()+step);
+                console.log(new Date().getDate()+step);
+                month_list.push(mm);
+            }
+        }   
     }
     
     if (dtoday == 6){
@@ -95,7 +112,9 @@ function setCalendar(yy,mm,dd){
     dateFRI.innerHTML = todaylist[4];
     dateSAT.innerHTML = todaylist[5];
     dateSUN.innerHTML = todaylist[6];
+
     //document.getElementById( "target" ).value = "SYNCER" ;
+    /*
     document.getElementById("datepostMON").value = todaylist[0];
     document.getElementById("datepostTUE").value = todaylist[1];
     document.getElementById("datepostWED").value = todaylist[2];
@@ -103,7 +122,7 @@ function setCalendar(yy,mm,dd){
     document.getElementById("datepostFRI").value = todaylist[4];
     document.getElementById("datepostSAT").value = todaylist[5];
     document.getElementById("datepostSUN").value = todaylist[6];
-
+    */
 }
 
 

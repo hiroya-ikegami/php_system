@@ -26,7 +26,7 @@ $ym = (isset($get))
         $daylist = array ( "MON"=>1 ,"TUE"=>2,"WED"=>3,"THU"=>4,"FRI"=>5,"SAT"=>6,"SUN"=>7);
         $weeklist = array("MON","TUE","WED","THU","FRI","SAT","SUN");
         foreach($weeklist as $value){?>
-            <?=$value?>
+            
             <tr>
                 <td id = "date<?=$value?>">date</td>
                 <td id = "day<?=$value?>"><?=$value?></td>

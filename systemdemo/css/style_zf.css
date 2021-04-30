@@ -30,3 +30,13 @@ header{
 .membertext{
     width: 80%;
 }
+.regist{
+        background-color: #a8d08c;
+        border-radius: 10px;
+        margin: 20px;
+        font-size: 15px;
+        padding:10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        left: 50%;
+}
