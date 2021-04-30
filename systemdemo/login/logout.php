@@ -2,7 +2,10 @@
 session_start();
 
 if(!isset($_SESSION["login"])){
-    header("Location: index.php");
+    print'ログインされていません。<br/>';
+    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
+    print'登録がまだの方<br/>';
+    print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
 }
 $_SESSION=array();
@@ -20,8 +23,8 @@ session_destroy();
 <link href="logout"rel="sylsheet"type="text/css">
 </head>
 <body>
-<h1>logoutpage</h1>
-<div class="message">logoutsita</div>
-<a href="login_index.php">loginpage</a>
+<h1>ログアウトページ</h1>
+<div class="message">ログアウトしました。</div>
+<a href="login_index.php">ロングインページ</a>
 </body>
 </html>

@@ -1,5 +1,11 @@
 <?php
-
+if(!isset($_SESSION["login"])){
+    print'ログインされていません。<br/>';
+    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
+    print'登録がまだの方<br/>';
+    print'<a href="../demosystem/index_html">登録画面へ</a>';
+    exit();
+}
 try{
 $staff_mail=$_POST['mail'];
 $staff_pass=$_POST['pass'];
@@ -25,11 +31,11 @@ $rec=$stmt>fetch(PDO::FETCH_ASSOC);
 
 if($rec=-false){
     print'メールアドレスかパスワードが間違っています。<br/>';
-    print'<a href="login_check.php">戻る</a>';
+    print'<a href="login_demo.php">戻る</a>';
 }else{
 session_start();
 $_SESSION['login']=1;
-$_SESSION['staff_mail']=staff_mail;
+$_SESSION['staff_mail']=$staff_mail;
 $_SESSION['staff_pass']=$rec['pass'];
     header('Location:demotop.html.html');
     exit();

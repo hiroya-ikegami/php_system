@@ -6,33 +6,30 @@
 </head>
 <body>
     <?php
-    $shimei=$_POST['shimei'];
+    $name=$_POST['name'];
     $birth=$_POST['birth'];
     $mail=$_POST['mail'];
     $pass=$_POST['pass'];
     $pass2=$_POST['pass2'];
 
-    $shimei=htmlspecialchars($shimei);
+    $name=htmlspecialchars($name);
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
     $pass2=htmlspecialchars($pass2);
-    $flag=0;
 
-    if($shimei=="")
+    if($name=="")
     {
         print"氏名が入力されていません。<br/>\n";
-        $flag=1;
     }else{
     print"氏名";
-    print $shimei;
+    print $name;
     print"<br/>";
 }
 
 if($birth=="")
 {
       print"誕生日が入力されていません。<br/>\n";
-      $flag=1;
 }else{
 print"誕生日";
 print $birth;
@@ -42,7 +39,6 @@ print"<br/>";
 if($mail=="")
 {
       print"メールアドレスが入力されていません。<br/>\n";
-        $flag=1;
 }else{
 print"メールアドレス";
 print $mail;
@@ -52,7 +48,6 @@ print"<br/>";
 if($pass=="")
 {
       print"パスワードが入力されていません。<br/>\n";
-      $flag=1;
 }else{
 print"パスワード";
 print $pass;
@@ -61,20 +56,18 @@ print"<br/>";
 if($pass!=$pass2)
 {
     print"パスワードが間違っています。<br/>\n";
-    $flag=1;
 }
 
-if($shimei==""||$birth==""||$mail==""||$pass=="")
+if($name==""||$birth==""||$mail==""||$pass==""||$pass==""||$pass!=$pass2)
 {
     print"<form>";
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
-    $flag=1;
 }
-if($flag == 0)
+else
 {
- print "ようこそ。";
- print "<a href='demotop.html'>トップへ</a>";
+ print $name"さんようこそ。";
+ print "<a href='login/success.php'></a>";
 }
 ?>
 </body>
