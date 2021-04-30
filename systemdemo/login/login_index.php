@@ -25,11 +25,11 @@ $rec=$stmt>fetch(PDO::FETCH_ASSOC);
 
 if($rec=-false){
     print'メールアドレスかパスワードが間違っています。<br/>';
-    print'<a href="login_check.php">戻る</a>';
+    print'<a href="login_demo.php">戻る</a>';
 }else{
 session_start();
 $_SESSION['login']=1;
-$_SESSION['staff_mail']=staff_mail;
+$_SESSION['staff_mail']=$staff_mail;
 $_SESSION['staff_pass']=$rec['pass'];
     header('Location:demotop.html.html');
     exit();

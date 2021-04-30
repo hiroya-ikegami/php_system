@@ -20,8 +20,8 @@ session_destroy();
 <link href="logout"rel="sylsheet"type="text/css">
 </head>
 <body>
-<h1>logoutpage</h1>
-<div class="message">logoutsita</div>
-<a href="login_index.php">loginpage</a>
+<h1>ログアウトページ</h1>
+<div class="message">ログアウトしました。</div>
+<a href="login_index.php">ロングインページ</a>
 </body>
 </html>
