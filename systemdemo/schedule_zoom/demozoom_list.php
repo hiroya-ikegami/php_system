@@ -3,7 +3,10 @@
 try{
      $toYm = date( "Y-m" ) ;//2021-04-30:
      $todate = date("d");
-     $end_date =  date ("Y-m-d",strtotime("+6 day"));//:2021-05-06
+
+     $end_datefull =  date ("Y-m-d",strtotime("+6 day"));//:2021-05-06
+     $end_date = substr($end_datefull,-2);
+
      $today = date("D");
 
      $end_month = (new DateTimeImmutable)->modify('last day of')->format('Y-m');//2021-04-30
@@ -11,13 +14,15 @@ try{
      //$times = "+" .$i. "days";
      //$times_date =  
      //print $times_date;
+
+    
     for ($i=0; $i<=6; $i++ )
     {
         $times = "+" .$i. "days";
         //$daysdate = "+" .$i. ""
         ${"dates".$i} = date ("Y-m-d",strtotime($times));
         ${"daysdate".$i} = date ("m/d",strtotime($times));
-        print ${"dates".$i}."　　";
+        //print ${"dates".$i}."　　";
         print ${"daysdate".$i}."　　";
         //print (date ("Y-m-d",strtotime($times)));//
         //$dates += date ("Y-m-d",strtotime($times));
@@ -77,10 +82,15 @@ catch(Exception $e)
         </thead>
         <?php
         //1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6,7 => 7
-       
-        $timelist = array("nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eightteen");
+        //$timelist = array("nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eightteen");
         $timelist2 = array("nine"=>"9:00","ten"=>"10:00","eleven"=>"11:00","twelve"=>"12:00","thirteen"=>"13:00","fourteen"=>"14:00","fifteen"=>"15:00","sixteen"=>"16:00","seventeen"=>"17:00","eightteen"=>"18:00");
         $weeklist = array("MON","TUE","WED","THU","FRI","SAT","SUN");
+        $weeklist2 =[];
+        foreach($daysdate as $value){
+            
+        }
+
+        
         $s_time = 9;
         $cou = 0;
         foreach($timelist2 as $key =>$value){
@@ -101,7 +111,7 @@ catch(Exception $e)
                 <?php
 
                 ?>
-                </td><!--日にち-->
+                </td><!--日にち 一週間分の9:00から予定表示-->
                 <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
                 <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
                 <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
