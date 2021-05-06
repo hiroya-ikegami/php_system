@@ -17,7 +17,7 @@ $memo = array($post['memoMON'] , $post['memoTUE'],$post['memoWED'],$post['memoTH
 $company = array($post['companyMON'] , $post['companyTUE'],$post['companyWED'],$post['companyTHU'],$post['companyFRI'],$post['companySAT'],$post['companySUN']);
 
 //var_dump($work);
-print_r($work);
+//print_r($work);
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ print_r($work);
             <?php 
             //print $cou;
             $registarea = $work[$cou];
-            print $registarea;
+            //print $registarea;
             ?>
             <tr>
                 <td id = "date<?=$value?>">date</td>
@@ -70,7 +70,7 @@ print_r($work);
             $smemo = serialize($memo);
             */
             $swork = json_encode($work);
-            print($swork);
+            //print($swork);
             $scompany = serialize($company);
             $sperson = serialize($person);
             $smemo = serialize($memo);

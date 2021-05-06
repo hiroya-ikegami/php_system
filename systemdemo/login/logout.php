@@ -24,6 +24,6 @@ session_destroy();
 <body>
 <h1>ログアウトページ</h1>
 <div class="message">ログアウトしました。</div>
-<a href="login_index.php">ロングインページ</a>
+<a href="login_index.php">ログインページ</a>
 </body>
 </html>

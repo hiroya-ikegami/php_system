@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <!--ここでログインチェックされると入れません…-->
-=======
->>>>>>> d44f8fadc6b427689e34713da0087df8e81c953c
 <!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

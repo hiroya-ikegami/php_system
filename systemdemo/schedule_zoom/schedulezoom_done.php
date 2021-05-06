@@ -17,7 +17,7 @@ try{
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     //$sql = 'INSERT INTO zoom_schedule(name,password) VALUES (?,?)';
     $testsql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,regist_p) VALUES('.$title.",".$calendar.",".$start_time.",".$end_time.",".$content.",".$member.",".$testuser.")";
-    print $testsql;
+    //print $testsql;
     //print ($title.$calendar.$start_time.$end_time.$content.$member.$testuser);
     $sql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,regist_p) VALUES(?,?,?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
@@ -48,7 +48,7 @@ try{
 <div><h2>登録：</h2></div>
 zoom予定を追加しました。 <br/>
 </div>
-<form action="demotop.html">
+<form action="../demotop.html">
         <input type="submit" value="トップに戻る"class = "top">
     </form>
 </body>
