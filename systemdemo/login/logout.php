@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION["login"])){
     print'ログインされていません。<br/>';
-    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
+    print'<a href="./login.html">ログイン画面へ</a><br>';
     print'登録がまだの方<br/>';
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();

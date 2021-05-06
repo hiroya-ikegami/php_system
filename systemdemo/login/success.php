@@ -12,6 +12,7 @@ if(!isset($_SESSION["login"])){
 $message=$_SESSION['login']."さんようこそ";
 
 $message=htmlspecialchars($message);
+print ($message)
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -36,7 +37,7 @@ try{
     $mail = $_POST['mail'];
     $pass = $_POST['pass'];
 
-    $name=htmlspecialchras($name);
+    $name=htmlspecialchars($name);
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
@@ -51,7 +52,7 @@ try{
     catch(Exception $e)
 {
 	print 'ただいま障害により大変ご迷惑をお掛けしております。';
-    print '<form method="post"acttion>'
+    print '<form method="post"acttion>';
 }
 ?>
 </body>

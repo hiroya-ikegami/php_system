@@ -1,6 +1,6 @@
 <?php
 
-//try{
+try{
 $staff_mail=$_POST['mail'];
 $staff_pass=$_POST['password'];
 $staff_mail=htmlspecialchars($staff_mail,ENT_QUOTES,'UTF-8');
@@ -31,23 +31,25 @@ $stmt=$dbh->prepare($sql);
 $data[]=$staff_mail;
 $data[]=$staff_pass;
 $stmt->execute($data);
+$prsql = 'SELECT name  FROM user WHERE mail='."$staff_mail".' AND pass='."$staff_pass" ;
+print($prsql);
 
-$dbh=null;
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
-
-
+print_r($rec);
+$dbh=null;
 if($rec=-false){
     print'メールアドレスかパスワードが間違っています。<br/>';
-    print'<a href="login_demo.php">戻る</a>';
+    print'<a href="login.php">戻る</a>';
 }else{
 session_start();
 $_SESSION['login']=1;
 $_SESSION['staff_mail']=$staff_mail;
 $_SESSION['staff_pass']=$rec['pass'];
+print('ok');
     header('Location:../demotop.html');
     exit();
 }
-/*
+
 }
 catch(Exception $e)
 {
