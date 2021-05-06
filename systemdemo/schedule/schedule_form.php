@@ -29,7 +29,7 @@ $ym = (isset($get))
 </head>
 <body>
     <div id = "divall">
-        <form action="demotop.html">
+        <form action="../demotop.html">
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="schedule_list.php" method="post">
