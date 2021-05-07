@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML 4.01 Transitonal//EN">
+<!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML 4.01 Transitonal//EN">
 <html>
 <head>
 <mate charset="UTF-8">
@@ -6,6 +6,13 @@
 	<link rel="stylesheet" href="../css/demokanristyle.css">
 
 </head>
+<?php
+$day=$_POST['s_date'];
+$s_time=$_POST['start_time'];
+$e_time=$_POST['end_time'];
+$content=$_POST['content'];
+$member=$_POST['partic_p'];
+?>
 <body bgcolor="#fbdac8">
 <div id="page">
 <header id="pageTop">

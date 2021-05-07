@@ -1,8 +1,4 @@
 
-<?php
-$message=htmlspecialchars($message);
-print ($message)
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
