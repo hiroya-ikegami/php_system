@@ -4,7 +4,7 @@ session_regenerate_id(true);
 
 if(!isset($_SESSION["login"])){
     print'ログインされていません。<br/>';
-    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
+    print'<a href="../login/login.html">ログイン画面へ</a>';
     print'登録がまだの方<br/>';
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
@@ -29,7 +29,7 @@ $ym = (isset($get))
 </head>
 <body>
     <div id = "divall">
-        <form action="demotop.html">
+        <form action="../demotop.html">
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="schedule_list.php" method="post">

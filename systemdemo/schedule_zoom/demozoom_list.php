@@ -5,12 +5,13 @@ try{
      $todate = date("d");
 
      $end_datefull =  date ("Y-m-d",strtotime("+6 day"));//:2021-05-06
-     $end_date = substr($end_datefull,-2);
-
+     //$end_date = substr($end_datefull,-2);
+     $end_date = date ("d",strtotime("+6 day"));//
      $today = date("D");
 
      $end_month = (new DateTimeImmutable)->modify('last day of')->format('Y-m');//2021-04-30
      $dates = [];
+     $dateslist =[];
      //$times = "+" .$i. "days";
      //$times_date =  
      //print $times_date;
@@ -19,16 +20,14 @@ try{
     for ($i=0; $i<=6; $i++ )
     {
         $times = "+" .$i. "days";
-        //$daysdate = "+" .$i. ""
         ${"dates".$i} = date ("Y-m-d",strtotime($times));
         ${"daysdate".$i} = date ("m/d",strtotime($times));
+        $dateslist[] = date ("m/d",strtotime($times));
         //print ${"dates".$i}."　　";
         print ${"daysdate".$i}."　　";
-        //print (date ("Y-m-d",strtotime($times)));//
-        //$dates += date ("Y-m-d",strtotime($times));
-        //print (date ("Y-m-d",strtotime($times)));//:2021-05-06;
-        //print $dates."→";
+        
     }
+    print_r($dateslist);
     //print_r("hairetu".$dates);
     print "<br>";
      
@@ -50,6 +49,7 @@ try{
     $stmt->execute();
 
     $dbh = null; 
+
 }
 catch(Exception $e)
 {
@@ -86,49 +86,72 @@ catch(Exception $e)
         $timelist2 = array("nine"=>"9:00","ten"=>"10:00","eleven"=>"11:00","twelve"=>"12:00","thirteen"=>"13:00","fourteen"=>"14:00","fifteen"=>"15:00","sixteen"=>"16:00","seventeen"=>"17:00","eightteen"=>"18:00");
         $weeklist = array("MON","TUE","WED","THU","FRI","SAT","SUN");
         $weeklist2 =[];
-        foreach($daysdate as $value){
-            
-        }
-
         
         $s_time = 9;
-        $cou = 0;
-        foreach($timelist2 as $key =>$value){
-            while(true)
-            {
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                if($result == false)
-                {
-                    break;
+        $cou = -1;
+        $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        //print($re);
+        var_dump($re);
+        function calender_event($re,$s_time,$dateslist,$cou){
+            foreach($re as  $value){
+                if(intval(substr($value["start_time"],0,2))==$s_time){
+                    //print "true";
+                    if (substr($value["s_date"],-5,5 )==str_replace("/","-",$dateslist[$cou])){
+                    //print "true";
+                    //print ($cou);
+                    print $value["title"];
+                    print "<br>";
+                    }
+                    else {
+                        //print "予定無";
+                        //print ($cou);
+                    }
                 }
-                //print ("日時:".$result['s_date']."  タイトル:".$result['title']."　開始時間: ".$result['start_time']."<br>");//17:14
-                print_r ($result);
-
-            }        
+            }
+        }
+        foreach($timelist2 as $key =>$value){     
             ?>
             <tr>
                 <td id = "time<?=$key?>"><?php print ($s_time.":00") ?>
                 <?php
+                //Array ( [0] => 05/06 [1] => 05/07 [2] => 05/08 [3] => 05/09 [4] => 05/10 [5] => 05/11 [6] => 05/12 )
+                //Array ( [s_date] => 2021-05-06 [title] => 朝礼 [start_time] => 09:07 [end_time] => 09:30 )
 
                 ?>
                 </td><!--日にち 一週間分の9:00から予定表示-->
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
-                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>"></td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
+                <td id = "<?=$key?>_<?=$weeklist[$cou]; $cou +=1;?>">
+                    <?php calender_event($re,$s_time,$dateslist,$cou);?>
+                </td>
             </tr>
         <?php
             $s_time+=1;
-            $cou = 0;
+            $cou = -1;
             
             }?>
     </table>
     <div class = "bottombutton">
         <input type="submit" value ="←前の週" class = "regist">
+        <form action="./schedulezoom_form.html">
         <input type="submit" value ="zoom予約" class = "regist">
+        </form>
         <input type="submit" value ="次の週→" class = "regist">
     </div>
     
