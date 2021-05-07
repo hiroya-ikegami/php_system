@@ -22,7 +22,7 @@ $testuser = "123";
 */
 $dsn='mysql:dbname=task_zoom;host=localhost;charaset=utf8';
 $user='root';
-$password='xampppass';
+$password='0305';
 $dbh = new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
