@@ -26,14 +26,13 @@ $person = array();
 $memo = array();
 $workarea = array("出社","在宅","その他","休日");
 
-
 $work = array($post['workMON'] , $post['workTUE'],$post['workWED'],$post['workTHU'],$post['workFRI'],$post['workSAT'],$post['workSUN']);
 $person = array($post['personMON'] , $post['personTUE'],$post['personWED'],$post['personTHU'],$post['personFRI'],$post['personSAT'],$post['personSUN']);
 $memo = array($post['memoMON'] , $post['memoTUE'],$post['memoWED'],$post['memoTHU'],$post['memoFRI'],$post['memoSAT'],$post['memoSUN']);
 $company = array($post['companyMON'] , $post['companyTUE'],$post['companyWED'],$post['companyTHU'],$post['companyFRI'],$post['companySAT'],$post['companySUN']);
 
-//var_dump($work);
-//print_r($work);
+var_dump($work);
+print_r($work);
 
 ?>
 <!DOCTYPE html>
@@ -62,13 +61,13 @@ $company = array($post['companyMON'] , $post['companyTUE'],$post['companyWED'],$
             <?php 
             //print $cou;
             $registarea = $work[$cou];
-            //print $registarea;
+            print $registarea;
             ?>
             <tr>
                 <td id = "date<?=$value?>">date</td>
                 <td><?=$value?></td>
-            <?php //$workarea[$registarea-1] ?>
-            <td></td>
+            
+            <td><?=$workarea[$registarea-1] ?></td>
             <td><?=$company[$cou]?></td>
             <td><?=$person[$cou]?></td>
             <td><?=$memo[$cou]?></td>

@@ -1,7 +1,5 @@
 <?php 
-
-
-
+//年計算
 function gengo($seireki)
 {  
     $gengo = "明治";
@@ -26,7 +24,7 @@ if(1912<=$seireki && $seireki<=1925)
 
   return ($gengo);
 }
-
+//POST変換
 function sanitaize($before)
 {
     foreach($before as $key => $value)
@@ -35,6 +33,7 @@ function sanitaize($before)
         }
     return $after;
 }
+
 function pulldown_year()
 {
 print'<select name="year" id="">';
