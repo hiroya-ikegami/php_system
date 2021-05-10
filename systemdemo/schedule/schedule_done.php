@@ -20,8 +20,8 @@ print ($message)
         $company = $_SESSION["company_data"];
         $person  = $_SESSION["person_data"];
         $memo = $_SESSION["memo_data"];
-        $daylist = $_SESSION["daylist_data"];
-        print_r($daylist);
+        $dateslist = $_SESSION["dateslist_data"];
+        print_r($dateslist);
         print "<br>";
         print_r($work);
         print "<br>";
@@ -46,14 +46,14 @@ print ($message)
     $workarea = array("","出社","在宅","その他","休日");
     $testuser = 12;
     for ($i=0;$i<7;$i++){
-        $testp= "'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES($testdays,$work[$i],$company[$i],$person[$i], $memo[$i],$testuser)'";
+        $testp= "'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES($dateslist[$i],$work[$i],$company[$i],$person[$i], $memo[$i],$testuser)'";
         print ($testp);
         print $workarea[$work[$i]];
         print "<br>";
 
         $sql = 'INSERT INTO `schedule` (`sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES(?,?,?,?,?,?)';
         $stmt = $dbh->prepare($sql);
-        $data[] = $daylist[$i];
+        $data[] = $dateslist[$i];
         $data[] = $workarea[$work[$i]];
         $data[] = $company[$i];
         $data[] = $person[$i];
