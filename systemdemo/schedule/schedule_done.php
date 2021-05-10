@@ -15,43 +15,57 @@ $message=htmlspecialchars($message);
 print ($message)
 ?>
 <?php 
-    require_once("../common/common.php");
-    $post = $_POST;
-    print_r( $post);
-    $work = $post['swork']; 
-    print ($work);
-    $work = json_decode($work,true);
-    print($work);
-try{
-    
+    if(isset($_SESSION["work_data"])){
+        $work = $_SESSION["work_data"];
+        $company = $_SESSION["company_data"];
+        $person  = $_SESSION["person_data"];
+        $memo = $_SESSION["memo_data"];
+        $dateslist = $_SESSION["dateslist_data"];
+        print_r($dateslist);
+        print "<br>";
+        print_r($work);
+        print "<br>";
+        print_r($company);
+        print "<br>";
+        print_r($person);
+        print "<br>";
+        print_r($memo);
+        print "<br>";
+    }
 
-    $company = $post['scompany'];
-    $person = $post['sperson'];
-    $memo = $post['smemo'];
 
-    $dsn = 'mysql:dbname=shop;host=localhost;charaset=utf8';
+//try{
+
+    $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
     $user = 'root';
     $password = '0305';
     $dbh = new PDO($dsn,$user,$password);
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    //INSERT INTO `schedule` (`id`, `date`, `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES (NULL, current_timestamp(), '20210428', '在宅', '帰社会', '夕方会議', '開発', '12');
-    ////INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES ( '20210428', '在宅', '帰社会', '夕方会議', '開発', '12');
-    //$sql = 'INSERT INTO mst_staff(name,password) VALUES (?,?)';
-    $testdays = 20210428;
+ 
+    $testdays = date("Y-m-d");
+    $workarea = array("","出社","在宅","その他","休日");
     $testuser = 12;
-    for ($i=0;$i<3;$i++){
-        $sql = 'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES(?,?,?,?,?,?)';
+    for ($i=0;$i<7;$i++){
+        $testp= "'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES($dateslist[$i],$work[$i],$company[$i],$person[$i], $memo[$i],$testuser)'";
+        print ($testp);
+        print $workarea[$work[$i]];
+        print "<br>";
+
+        $sql = 'INSERT INTO `schedule` (`sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES(?,?,?,?,?,?)';
         $stmt = $dbh->prepare($sql);
-        $data[] = $testdays;
-        $data[] = $work[$i];
+        $data[] = $dateslist[$i];
+        $data[] = $workarea[$work[$i]];
         $data[] = $company[$i];
         $data[] = $person[$i];
         $data[] = $memo[$i];
-        $data[] = $testuser;
-        $testp= "'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES($$testdays+$i,$work[$i],$company[$i],$person[$i], $memo[$i],$testuser)'";
-        print ($testp);
+        $data[] = $_SESSION['login'];
+
         $stmt ->execute($data);
 
+        //INSERT INTO `schedule` (`sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES (NULL, current_timestamp(), '2021-05-10', '在宅', '帰社会', '夕方会議', '開発', '12');
+        
+        unset($data);
+        
     }
     /*
     $sql = 'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES(?,?,?,?,?,?)';
@@ -64,11 +78,19 @@ try{
 
     print '<h2>登録</h2>';
     print '予定を追加しました。 <br/>';
-}
+    
+//}
+/*
 catch(Exception $e)
 {
     
 print "ただいま障害により大変ご迷惑をおかけしております。";
 exit();
-}
+}*/
 ?>
+<html>
+<form action="../demotop.html">
+            <input type="submit" value="トップに戻る"class = "top">
+        </form>
+
+</html>
