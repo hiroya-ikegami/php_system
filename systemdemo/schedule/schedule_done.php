@@ -34,7 +34,7 @@ print ($message)
     }
 
 
-//try{
+try{
 
     $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
     $user = 'root';
@@ -46,19 +46,20 @@ print ($message)
     $workarea = array("","出社","在宅","その他","休日");
     $testuser = 12;
     for ($i=0;$i<7;$i++){
-        $testp= "'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES($dateslist[$i],$work[$i],$company[$i],$person[$i], $memo[$i],$testuser)'";
+        $testp= "'INSERT INTO `schedule` ( `sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `memberid`) VALUES($dateslist[$i],$work[$i],$company[$i],$person[$i], $memo[$i],$testuser)'";
         print ($testp);
         print $workarea[$work[$i]];
         print "<br>";
 
-        $sql = 'INSERT INTO `schedule` (`sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES(?,?,?,?,?,?)';
+        $sql = 'INSERT INTO `schedule` (`sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `memberid`) VALUES(?,?,?,?,?,?)';
         $stmt = $dbh->prepare($sql);
         $data[] = $dateslist[$i];
         $data[] = $workarea[$work[$i]];
         $data[] = $company[$i];
         $data[] = $person[$i];
         $data[] = $memo[$i];
-        $data[] = $_SESSION['login'];
+        $data[] = 3;
+        //$data[] = $_SESSION['login'];
 
         $stmt ->execute($data);
 
@@ -73,20 +74,20 @@ print ($message)
     $data[] = $staff_name;
     $data[] = $staff_pass;
     $stmt ->execute($data);
-*/
+    */
     $dbh = null;
 
     print '<h2>登録</h2>';
     print '予定を追加しました。 <br/>';
     
-//}
-/*
+}
+
 catch(Exception $e)
 {
     
 print "ただいま障害により大変ご迷惑をおかけしております。";
 exit();
-}*/
+}
 ?>
 <html>
 <form action="../demotop.html">

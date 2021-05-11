@@ -7,26 +7,26 @@ try{
     $start_time = $post["start_time"];
     $end_time = $post["end_time"];
     $content =$post["content"];
-    $member = $post["member"];
+    $zoom_member = $post["member"];
 
-    $testuser = "123";
+    $testuser = "1";
     $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
     $user = 'root';
     $password = '0305';
     $dbh = new PDO($dsn,$user,$password);
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     //$sql = 'INSERT INTO zoom_schedule(name,password) VALUES (?,?)';
-    $testsql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,regist_p) VALUES('.$title.",".$calendar.",".$start_time.",".$end_time.",".$content.",".$member.",".$testuser.")";
+    $testsql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,memberid) VALUES('.$title.",".$calendar.",".$start_time.",".$end_time.",".$content.",".$zoom_member.",".$testuser.")";
     //print $testsql;
     //print ($title.$calendar.$start_time.$end_time.$content.$member.$testuser);
-    $sql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,regist_p) VALUES(?,?,?,?,?,?,?)';
+    $sql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,memberid) VALUES(?,?,?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
     $data[] = $title;
     $data[] = $calendar;
     $data[] = $start_time;
     $data[] = $end_time;
     $data[] = $content;
-    $data[] = $member;
+    $data[] = $zoom_member;
     $data[] = $testuser;
     $stmt ->execute($data);
 

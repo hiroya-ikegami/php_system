@@ -1,0 +1,300 @@
+#divall{
+    margin-right: auto;
+    margin-left: auto;
+    width: 1100px;
+
+
+}
+#divall_list{
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+
+
+}
+body{
+    background-color: #CCCCCC;
+}
+.top{
+    background-color:  #a8d08c;
+    margin-top: 20px;
+    padding: 5px;    
+    margin-left: 3%;
+}
+h1{
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+table,
+table{
+    margin-right: auto;
+    margin-left: auto;
+    border:1px solid black ;
+    border-collapse:collapse;
+    
+   }
+   td{
+       border:1px solid black ;
+       border-collapse:collapse;
+       padding-left: 10px;
+       padding-right: 10px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       background-color: #cdd4ea;
+       
+   }
+
+   th{
+    border:1px solid black ;
+    border-collapse:collapse;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   }
+
+
+thead{
+    border:1px solid black ;
+    border-collapse:collapse;
+    text-align: start;
+    background-color:#4472c4;
+    color:white;
+    text-align : left;
+}
+
+
+
+.yoteibutton{
+    display: inline;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.texttd{
+    padding: 0px;
+}
+.textarea{
+    background-color: #cdd4ea;
+    margin: 0;
+    border: none;
+    padding: 10px;
+
+
+}
+.leftpadding{
+    text-align: start;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.bottombutton{
+display: flex;
+justify-content: space-between;
+}
+.regist{
+    background-color: #a8d08c;
+    margin: 10px;
+    font-size: 20px;
+    padding:5px,10px;
+    left: 50%;
+}
+button{
+    background-color: #a8d08c;
+    margin: 10px;
+    font-size: 20px;
+    padding:5px,10px;
+    left: 50%;
+}
+
+#remote,#arrive,#s_other,#closed{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remote:checked + label{
+    background:  wheat;
+}
+#arrive:checked + label{
+    background:  wheat;
+}
+#s_other:checked + label{
+    background:  wheat;
+}
+
+#closed:checked + label{
+    background: yellowgreen;
+}
+
+
+
+/* テーブル７つ分ある　チェック操作　sass使いたい…*/
+#remoteMON,#arriveMON,#s_otherMON,#closedMON{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteMON:checked + label{
+    background:  wheat;
+}
+#arriveMON:checked + label{
+    background:  wheat;
+}
+#s_otherMON:checked + label{
+    background:  wheat;
+}
+
+#closedMON:checked + label{
+    background: yellowgreen;
+}
+
+/*火曜日*/
+#remoteTUE,#arriveTUE,#s_otherTUE,#closedTUE{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:TUEpx solid black;
+    background: lavender;
+}
+#remoteTUE:checked + label{
+    background:  wheat;
+}
+#arriveTUE:checked + label{
+    background:  wheat;
+}
+#s_otherTUE:checked + label{
+    background:  wheat;
+}
+
+#closedTUE:checked + label{
+    background: yellowgreen;
+}
+/*水曜*/
+#remoteWED,#arriveWED,#s_otherWED,#closedWED{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteWED:checked + label{
+    background:  wheat;
+}
+#arriveWED:checked + label{
+    background:  wheat;
+}
+#s_otherWED:checked + label{
+    background:  wheat;
+}
+
+#closedWED:checked + label{
+    background: yellowgreen;
+}
+
+/*木曜*/
+#remoteTHU,#arriveTHU,#s_otherTHU,#closedTHU{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteTHU:checked + label{
+    background:  wheat;
+}
+#arriveTHU:checked + label{
+    background:  wheat;
+}
+#s_otherTHU:checked + label{
+    background:  wheat;
+}
+
+#closedTHU:checked + label{
+    background: yellowgreen;
+}
+
+#remoteFRI,#arriveFRI,#s_otherFRI,#closedFRI{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteFRI:checked + label{
+    background:  wheat;
+}
+#arriveFRI:checked + label{
+    background:  wheat;
+}
+#s_otherFRI:checked + label{
+    background:  wheat;
+}
+
+#closedFRI:checked + label{
+    background: yellowgreen;
+}
+
+#remoteSAT,#arriveSAT,#s_otherSAT,#closedSAT{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteSAT:checked + label{
+    background:  wheat;
+}
+#arriveSAT:checked + label{
+    background:  wheat;
+}
+#s_otherSAT:checked + label{
+    background:  wheat;
+}
+
+#closedSAT:checked + label{
+    background: yellowgreen;
+}
+
+#remoteSUN,#arriveSUN,#s_otherSUN,#closedSUN{
+    display: none;
+}
+label{
+    padding: 3px;
+    margin:5px;
+    border:1px solid black;
+    background: lavender;
+}
+#remoteSUN:checked + label{
+    background:  wheat;
+}
+#arriveSUN:checked + label{
+    background:  wheat;
+}
+#s_otherSUN:checked + label{
+    background:  wheat;
+}
+
+#closedSUN:checked + label{
+    background: yellowgreen;
+}

@@ -58,24 +58,6 @@ $dateslist =[];
 $monday = date("Y-m-d",strtotime('last monday'));
 //print "月曜日".$monday."<br>";
 //月曜日から一週間の日程取得
-/*
-if (date("w") == 1){
-    for ($i=0; $i<=6; $i++ )
-    {
-    $times = "+" .$i. "days";
-    $dateslist[] = date ("y-m-d",strtotime($toYm.$times));
-    $dateslooklist[] = date("m/d",strtotime($toYm.$times));
-    }
-}
-else{
-    for ($i=0; $i<=6; $i++ )
-    {
-    $times = "+" .$i. "days";
-    $dateslist[] = date ("y-m-d",strtotime($monday.$times));
-    $dateslooklist[] = date("m/d",strtotime($monday.$times));
-    }
-}
-*/
 //print_r($dateslist);
 ?>
 <!DOCTYPE html>
