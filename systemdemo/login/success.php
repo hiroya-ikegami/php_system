@@ -18,7 +18,7 @@ try{
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
 
-    $dsn= 'mysql:dbname=system;host=localhost';
+    $dsn= 'mysql:dbname=task_zoom;host=localhost';
     $user= 'root';
     $password= '0305';
     $dbh= new PDO($dsn,$user,$password);
