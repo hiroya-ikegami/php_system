@@ -38,7 +38,7 @@ try{
     print $name;
     print '様<br/>';
     print 'ご登録ありがとうございます。<br/>';
-    print "<a href='../demotop.html'>トップ画面へ</a>";
+    print "<a href='../management/kanritop.html'>管理トップ画面へ</a>";
 
 }
   catch(Exception $e)
