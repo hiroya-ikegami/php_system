@@ -17,10 +17,10 @@ print ($message)
 <?php 
 $ym = (isset($get));
 //日付取得 
-$toYm = date( "Y-m-d" ) ;//2021-05-07:
+$toYmd = date( "Y-m-d" ) ;//2021-05-07:
 //print "今日".$toYm."<br>";
 //0123456 5
-$targetweekday = date("w",strtotime($toYm));
+$targetweekday = date("w",strtotime($toYmd));
 //print $targetweekday."<br>";
 $dateslist =[];
 $monday = date("Y-m-d",strtotime('last monday'));
@@ -30,8 +30,8 @@ if (date("w") == 1){
     for ($i=0; $i<=6; $i++ )
     {
     $times = "+" .$i. "days";
-    $dateslist[] = date ("Y-m-d",strtotime($toYm.$times));
-    $dateslooklist[] = date("m/d",strtotime($toYm.$times));
+    $dateslist[] = date ("Y-m-d",strtotime($toYmd.$times));
+    $dateslooklist[] = date("m/d",strtotime($toYmd.$times));
     }
 }
 else{
@@ -42,8 +42,27 @@ else{
     $dateslooklist[] = date("m/d",strtotime($monday.$times));
     }
 }
-
 //print_r($dateslist);
+try{
+    $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
+    $user = 'root';
+    $password = '0305';
+    $dbh = new PDO($dsn,$user,$password);
+    $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $sql = 'SELECT name, workarea, per_schedule, memo FROM schedule INNER JOIN member ON schedule.memberid = member.memberid WHERE schedule.sche_date = "'.$toYmd.'" AND schedule.memberid ="'.$_SESSION["login"].'"';
+    
+    print("<br>".$sql."<br>");
+    $stmt = $dbh->prepare($sql);
+    $stmt ->execute();
+    $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    print_r($re);
+    
+    }
+    catch (Exception $e){
+    
+    }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +79,9 @@ else{
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="schedule_list2.php" method="post">
-    <h1 >予定入力画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    <table>
+    <h1 >予定入力画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    
+    
+        <table>
         <input type="submit" value ="確認" class = "regist" id ="reg_check">
         <thead>
         <tr><th>日</th><th>曜日</th><th>勤務場所</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
@@ -82,15 +103,12 @@ else{
             <input type="radio" name = "work<?=$key?>" value = "4" id = "closed<?=$key?>"><label for = "closed<?=$key?>">休日</label>
             </td>
             <td ><input type="text" class = "textarea" name = "company<?=$key?>"></td>
-            <!-- 
-            <td><input type="text" class = "textarea"　name = "p_schedule<?=$key?>"></td>
-            <td><input type="text" class = "textarea"　name = "test<?=$key?>"></td>
-            -->
             <td><input type="text" class = "textarea" name = "person<?=$key?>"></td>
             <td><input type="text" class = "textarea" name = "memo<?=$key?>"></td>
             </tr><p hidden id = "date<?=$key?>"></p><input type="hidden" id = "datepost<?=$key?>" value="?">
             
-            <?php };
+            <?php 
+                };
             ?>
 
     </table>
