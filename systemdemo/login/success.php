@@ -8,7 +8,7 @@
 <body>
 <?php
 try{
-    $name = $_POST['name'];
+    $name = $_POST['shimei'];
     $birth = $_POST['birth'];
     $mail = $_POST['mail'];
     $pass = $_POST['pass']; 

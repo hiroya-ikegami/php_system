@@ -4,7 +4,7 @@
     <meta https-equiv="Content-Type"content="text/html;charset=UTF-8">
     <title>これでいいですか？</title>
 </head>
-<h1><font color="white": size="12px">登録確認確認</font></h1>
+<h1><font color="white": size="12px">登録確認</font></h1>
 <body bgcolor="lightblue">
     <?php
     $shimei=$_POST['shimei'];
@@ -65,7 +65,7 @@ if($shimei==""||$birth==""||$mail==""||$pass==""||$pass=="")
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
 }else{
-    print'<form method="post"action="thanks.php">';
+    print'<form method="post"action="../login/success.php">';
     print '<input name="shimei"type="hidden"value="'.$shimei.'">';
 	print '<input name="birth"type="hidden"value="'.$birth.'">';
 	print '<input name="mail"type="hidden"value="'.$mail.'">';
