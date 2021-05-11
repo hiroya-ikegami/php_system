@@ -8,16 +8,27 @@
 </head>
 <body bgcolor="#fbdac8">
 <?php
-$name = $_POST['name'];
-$birth = $_POST['birth'];
-$mail = $_POST['mail'];
-$pass = $_POST['pass']; 
+$dbhost="localhost";
+$dbuser="root";
+$dbpass="0305";
+$dbnamae="task_zoom"
 
-$name=htmlspecialchars($name);
-$birth=htmlspecialchars($birth);
-$mail=htmlspecialchars($mail);
-$pass=htmlspecialchars($pass);
+$sql_com=mysql_connect($dbhost,$dbuser,$dbpass);
+mysql_select_db($dbname,$sql_con);
+
+$create_sql="CREATE TABLE IF NOT EXISTS'TABLE'("
+"ID INT NULL AUTO_INCREMENT COMMENT 'ID',".
+"NAME VARCHAR(100) NULL     COMMENT 'NAME',".
+"TEXT TEXT NULL             COMMENT 'TEXT',".
+"DATE DATE NULL             COMMENT 'DATE',".
+"PRIMARY KEY(ID)".
+")";
+mysql_query($create_sql,$sql_com); //テーブル作成
+
+$ret_array=array();//適当な配列に入れる
+$select_sql="select*form''"
 ?>
+
 <div id="page">
 <header id="pageTop">
 

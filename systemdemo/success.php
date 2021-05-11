@@ -38,15 +38,16 @@ try{
     print $name;
     print '様<br/>';
     print 'ご登録ありがとうございます。<br/>';
-    print "<a href='../demotop.html'>トップ画面へ</a>";
+    print '<form method="post"action="demotop.html">';
+    print '<input type="submit"value="トップ画面へ">';
+    print '</form>';
 
 }
   catch(Exception $e)
 {
 	print 'ただいま障害により大変ご迷惑をお掛けしております。<br/>';
-    print '登録画面に戻る。</br>';
     print '<form method="post"acttion="demo_index.html">';
-    print '<input type="submit"value="登録画面へ">';
+    print'<input type="button"onclick="history.back()"value="登録画面へ">';
     print '</form>';
 }
 ?>

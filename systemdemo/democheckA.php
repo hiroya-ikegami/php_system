@@ -66,7 +66,7 @@ if($name==""||$birth==""||$mail==""||$pass==""||$pass!=$pass2)
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
 }else{
-    print'<form method="post"action="login/success.php">';
+    print'<form method="post"action="success.php">';
     print '<input name="name"type="hidden"value="'.$name.'">';
 	print '<input name="birth"type="hidden"value="'.$birth.'">';
 	print '<input name="mail"type="hidden"value="'.$mail.'">';
