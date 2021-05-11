@@ -16,7 +16,7 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 //$prsql = 'SELECT name  FROM user WHERE mail='."$staff_mail".' AND pass='."$staff_pass" ;
 
-$sql='SELECT name  FROM user WHERE mail = ? AND pass = ?';
+$sql='SELECT name  FROM member WHERE mail = ? AND pass = ?';
 $stmt=$dbh->prepare($sql);
 $data[]=$staff_mail;
 $data[]=$staff_pass;

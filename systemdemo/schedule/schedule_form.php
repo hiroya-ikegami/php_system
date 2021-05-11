@@ -30,7 +30,7 @@ if (date("w") == 1){
     for ($i=0; $i<=6; $i++ )
     {
     $times = "+" .$i. "days";
-    $dateslist[] = date ("y-m-d",strtotime($toYm.$times));
+    $dateslist[] = date ("Y-m-d",strtotime($toYm.$times));
     $dateslooklist[] = date("m/d",strtotime($toYm.$times));
     }
 }
@@ -38,7 +38,7 @@ else{
     for ($i=0; $i<=6; $i++ )
     {
     $times = "+" .$i. "days";
-    $dateslist[] = date ("y-m-d",strtotime($monday.$times));
+    $dateslist[] = date ("Y-m-d",strtotime($monday.$times));
     $dateslooklist[] = date("m/d",strtotime($monday.$times));
     }
 }
@@ -103,6 +103,7 @@ else{
     </div>
 </div>
 <?php
+print_r($dateslist);
 $_SESSION["dateslist_data"] = $dateslist;
 $_SESSION["dateslooklist_data"] = $dateslooklist;
 ?>

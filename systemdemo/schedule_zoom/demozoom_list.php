@@ -25,25 +25,6 @@ try{
      $dateslooklist[] = date("m/d",strtotime($monday.$times));
      ${"daysdate".$i} = date ("m/d",strtotime($monday.$times));
      }
-     //print $daysdate0;
-     //print_r($dateslist);
-    
-    /*for ($i=0; $i<=6; $i++ )
-    {
-        $times = "+" .$i. "days";
-        ${"dates".$i} = date ("Y-m-d",strtotime($times));
-        ${"daysdate".$i} = date ("m/d",strtotime($times));
-        $dateslist[] = date ("m/d",strtotime($times));
-        //print ${"dates".$i}."　　";
-        //print ${"daysdate".$i}."　　";
-    }*/
-
-    //print_r($dateslist);
-    //print_r("hairetu".$dates);
-    //print "<br>";
-     
-    //print ($todate."::".$end_date."==");
-    
 
     $testuser = "123";
     $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
@@ -51,11 +32,8 @@ try{
     $password = '0305';
     $dbh = new PDO($dsn,$user,$password);
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-         //SELECT * FROM fruit WHERE name IN("みかん","りんご");
-         //'SELECT title  FROM zoom_schedule WHERE s_date IN ?,;
-    //$sqlpri = 'SELECT s_date,title,start_time,end_time  FROM zoom_schedule WHERE s_date IN ("'.$dates0.'","'.$dates1.'","'.$dates2.'","'.$dates3.'","'.$dates4.'","'.$dates5.'","'.$dates6.'")';
-    //print $sqlpri;
-    $sql =    'SELECT s_date,title,start_time,end_time  FROM zoom_schedule WHERE s_date IN (?,?,?,?,?,?,?)';
+
+    $sql = 'SELECT s_date,title,start_time,end_time  FROM zoom_schedule WHERE s_date IN (?,?,?,?,?,?,?)';
     $stmt =$dbh->prepare($sql);
 
     $data[] = $dateslist[0];
@@ -125,13 +103,6 @@ print ("エラーが発生しました。");
                     //print ($cou);
                     print $value["title"];
                     print "<br>";
-                    }
-                    else {
-                        //print substr($value["s_date"],-5,5) ;
-                        //print "==";
-                        //print (str_replace("/","-",$dateslist[$cou]));
-                        //print "予定無<br>";
-                        //print ($cou);
                     }
                 }
             }
