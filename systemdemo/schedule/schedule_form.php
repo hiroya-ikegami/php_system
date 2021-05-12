@@ -9,7 +9,7 @@ if(!isset($_SESSION["login"])){
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
 }
-$message=$_SESSION['login']."さんようこそ";
+$message=$_SESSION['login_name']."さんようこそ";
 
 $message=htmlspecialchars($message);
 print ($message)
@@ -51,11 +51,11 @@ try{
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $sql = 'SELECT name, workarea, per_schedule, memo FROM schedule INNER JOIN member ON schedule.memberid = member.memberid WHERE schedule.sche_date = "'.$toYmd.'" AND schedule.memberid ="'.$_SESSION["login"].'"';
     
-    print("<br>".$sql."<br>");
+    //print("<br>".$sql."<br>");
     $stmt = $dbh->prepare($sql);
     $stmt ->execute();
     $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-    print_r($re);
+    //print_r($re);
     
     }
     catch (Exception $e){
@@ -121,7 +121,7 @@ try{
     </div>
 </div>
 <?php
-print_r($dateslist);
+//print_r($dateslist);
 $_SESSION["dateslist_data"] = $dateslist;
 $_SESSION["dateslooklist_data"] = $dateslooklist;
 ?>

@@ -9,7 +9,7 @@ if(!isset($_SESSION["login"])){
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
 }
-$message=$_SESSION['login']."さんようこそ";
+$message=$_SESSION['login_name']."さんようこそ";
 
 $message=htmlspecialchars($message);
 print ($message)

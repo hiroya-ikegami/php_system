@@ -7,7 +7,7 @@ $staff_mail=htmlspecialchars($staff_mail,ENT_QUOTES,'UTF-8');
 $staff_pass=htmlspecialchars($staff_pass,ENT_QUOTES,'UTF-8');
 
 $staff_pass=md5($staff_pass);
-
+print ($staff_pass);
 $dsn='mysql:dbname=task_zoom;host=localhost;charaset=utf8';
 $user='root';
 $password='0305';
@@ -37,6 +37,7 @@ $_SESSION['login']=1;
 $_SESSION['staff_mail']=$staff_mail;
 $_SESSION['staff_pass']=$staff_pass;
 $_SESSION['login_id']= $rec["memberid"];
+$_SESSION['login_name'] = $rec["name"];
 
 print('ok');
     //header('Location:../demotop.html');
