@@ -75,14 +75,19 @@ try{
 </head>
 <body>
     <div id = "divall">
-        <form action="../demotop.html">
-            <input type="submit" value="トップに戻る"class = "top">
-        </form>
+        <div class = "bottombutton">
+            <form action="../demotop.html">
+                <input type="submit" value="トップに戻る"class = "top">
+            </form>
+            <form action="./schedule_edit.php">
+                <input type="submit" value="登録した予定の編集" class = "edit">
+            </form>
+        </div>
+
     <form action="schedule_list2.php" method="post">
     <h1 >予定入力画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    
-    
+        <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
         <table>
-        <input type="submit" value ="確認" class = "regist" id ="reg_check">
         <thead>
         <tr><th>日</th><th>曜日</th><th>勤務場所</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
         </thead>
@@ -117,7 +122,8 @@ try{
  
     </form>
     <!-- <input type="button" value ="先週へ" class = "regist" onclick="nextweek()"> -->
-    <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
+    <input type="submit" value ="確認" class = "regist" id ="reg_check">
+    
     </div>
 </div>
 <?php
