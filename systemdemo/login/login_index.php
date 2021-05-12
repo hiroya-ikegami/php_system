@@ -16,7 +16,8 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 //$prsql = 'SELECT name  FROM user WHERE mail='."$staff_mail".' AND pass='."$staff_pass" ;
 
-$sql='SELECT name  FROM member WHERE mail = ? AND pass = ?';
+//$sql='SELECT name  FROM member WHERE mail = ? AND pass = ?';
+$sql='SELECT name , memberid FROM member WHERE mail = ? AND pass = ?';
 $stmt=$dbh->prepare($sql);
 $data[]=$staff_mail;
 $data[]=$staff_pass;
@@ -35,8 +36,10 @@ session_start();
 $_SESSION['login']=1;
 $_SESSION['staff_mail']=$staff_mail;
 $_SESSION['staff_pass']=$staff_pass;
+$_SESSION['login_id']= $rec["memberid"];
+
 print('ok');
-    header('Location:../demotop.html');
+    //header('Location:../demotop.html');
     exit();
 }
 
