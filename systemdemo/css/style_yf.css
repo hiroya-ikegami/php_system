@@ -1,3 +1,6 @@
+body{
+    background-color: #cdd4ea;
+}
 #divall{
     margin-right: auto;
     margin-left: auto;
@@ -12,11 +15,19 @@
 
 
 }
+.edit{
+    background-color:  #ED6A5A;
+    margin-top: 20px;
+    padding: 5px;    
+    margin-left: 3%;
+    border-radius: 10px;
+}
 .top{
     background-color:  #a8d08c;
     margin-top: 20px;
     padding: 5px;    
     margin-left: 3%;
+    border-radius: 10px;
 }
 h1{
     text-align: left;
@@ -39,7 +50,7 @@ table{
        padding-right: 10px;
        padding-top: 5px;
        padding-bottom: 5px;
-       background-color: #cdd4ea;
+       background-color: white;
        
    }
 
@@ -57,7 +68,7 @@ thead{
     border:1px solid black ;
     border-collapse:collapse;
     text-align: start;
-    background-color:#4472c4;
+    background-color:#646E78;
     color:white;
     text-align : left;
 }
@@ -74,7 +85,6 @@ thead{
     padding: 0px;
 }
 .textarea{
-    background-color: #cdd4ea;
     margin: 0;
     border: none;
     padding: 10px;
@@ -95,9 +105,11 @@ justify-content: space-between;
 .regist{
     background-color: #a8d08c;
     margin: 10px;
+    margin-left: 50px;
     font-size: 20px;
-    padding:5px,10px;
-    left: 50%;
+    padding:10px;
+    width : 100px;
+    border-radius: 10px;
 }
 button{
     background-color: #a8d08c;
@@ -105,6 +117,7 @@ button{
     font-size: 20px;
     padding:5px,10px;
     left: 50%;
+    border-radius: 10px;
 }
 
 #remote,#arrive,#s_other,#closed{
