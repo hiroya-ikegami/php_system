@@ -48,7 +48,7 @@ $dbh = new PDO($dsn,$user,$password);
 $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 //SELECT user, workarea, per_schedule, memo FROM schedule WHERE sche_date = "2021-05-10"
 //$sql = 'SELECT title, s_date, start_time,end_time,content,participant,memberid FROM zoom_schedule INNER JOIN member ON zoom_schedule.memberid = member.memberid WHERE schedule.sche_date = "'.$todate.'"';
-$sql = 'SELECT s_date,title,  start_time,end_time,content,participant,member.name FROM zoom_schedule  INNER JOIN member ON zoom_schedule.memberid = member.memberid WHERE zoom_schedule.s_date = ? ';
+$sql = 'SELECT code ,s_date,title, start_time,end_time,content,participant,member.name FROM zoom_schedule  INNER JOIN member ON zoom_schedule.memberid = member.memberid WHERE zoom_schedule.s_date = ? ';
 //print("<br>".$sql."<br>");
 $stmt = $dbh->prepare($sql);
 $data[] = $todate;
@@ -90,7 +90,7 @@ catch (Exception $e){
              ?></td>
             <td><input type="date" name="date" id="" value = "<?=$value["s_date"]?>"></td>
             <td> <input type="text" name="title" id=""value = "<?=$value["title"] ?>"></td>
-            <td><input type="time" name="stat_time"value = "<?=$value["start_time"]?>"> </td>
+            <td><input type="time" name="start_time"value = "<?=$value["start_time"]?>"> </td>
             <td><input type="time" name = "end_time" value ="<?=$value["end_time"]?>" ></td>
             <td><input type="text" name="content" value = "<?=$value["content"] ?>"></td>
             <td><input type="text" name="participant"value = " <?=$value["participant"] ?>"></td>
@@ -100,6 +100,7 @@ catch (Exception $e){
         }
         ?>
     </table>
+    <input type="hidden" name="code" value = "<?=$value["code"]?>">
     <input type="submit" value="登録" name = "update"s>
     <input type="submit" value="削除" name = "delete">
     </form>
