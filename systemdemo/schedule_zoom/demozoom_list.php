@@ -1,8 +1,6 @@
 
 <?php
 try{
-    
-
     //今年と月と日を別に取得
      $toYm = date( "Y-m-d" ) ;//2021-04-30:
      $todate = date("d");
@@ -67,7 +65,13 @@ print ("エラーが発生しました。");
 <body>
     <div id = "divall">
         <form action="../demotop.html">
-            <input type="submit" value="トップに戻る"class = "top">
+            <input type="submit" value="トップに戻る" class = "top">
+        </form>
+        <form action="./edit_zoomschedule.php">
+        <input type="submit" value="編集" class = "top">
+        </form>
+        <form action="./reference_zoomschedule.php" >
+            <input type="submit" value="参照" class ="top">
         </form>
     <h1>ZOOM予定表</h1>
     <?php 

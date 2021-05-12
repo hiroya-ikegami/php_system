@@ -44,12 +44,16 @@ else{
 }
 //print_r($dateslist);
 try{
+    $testid = 3;
     $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
     $user = 'root';
     $password = '0305';
     $dbh = new PDO($dsn,$user,$password);
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $sql = 'SELECT name, workarea, per_schedule, memo FROM schedule INNER JOIN member ON schedule.memberid = member.memberid WHERE schedule.sche_date = "'.$toYmd.'" AND schedule.memberid ="'.$_SESSION["login"].'"';
+ 
+
+    //WHERE schedule.sche_date BETWEEN  "2021-05-10" AND "2021-05-16" AND schedule.memberid ="3"
+    $sql = 'SELECT name, workarea, com_schedule,per_schedule, memo FROM schedule INNER JOIN member ON schedule.memberid = member.memberid WHERE schedule.sche_date BETWEEN "'.$dateslist[0].'" AND "' .$dateslist[6].'" AND schedule.memberid ="'.$_SESSION["login_id"].'"';
     
     //print("<br>".$sql."<br>");
     $stmt = $dbh->prepare($sql);
@@ -62,7 +66,7 @@ try{
     
     }
 
-
+//print ("<br>".$re[5]["com_schedule"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,48 +75,48 @@ try{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_yf.css">
-    <title>予定入力</title>
+    <title>予定編集</title>
 </head>
 <body>
     <div id = "divall">
-        <div class = "bottombutton">
-            <form action="../demotop.html">
-                <input type="submit" value="トップに戻る"class = "top">
-            </form>
-            <form action="./schedule_edit.php">
-                <input type="submit" value="登録した予定の編集" class = "edit">
-            </form>
-        </div>
-
+        <form action="../demotop.html">
+            <input type="submit" value="トップに戻る"class = "top">
+        </form>
     <form action="schedule_list2.php" method="post">
-    <h1 >予定入力画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    
-        <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
+    <h1 >予定編集画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    
         <table>
+        <input type="submit" value ="確認" class = "regist" id ="reg_check">
         <thead>
-        <tr><th>日</th><th>曜日</th><th>勤務場所</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
+        <tr><th>日</th><th>曜日</th><th>勤務場所</th><th>変更</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
         </thead>
+        <input type="hidden" value="<?php print_r($re);?>">
         <?php
         //1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6,7 => 7
         $daylist = array ( "MON"=>0 ,"TUE"=>1,"WED"=>2,"THU"=>3,"FRI"=>4,"SAT"=>5,"SUN"=>6);
-        $weeklist = array("MON","TUE","WED","THU","FRI","SAT","SUN");
-        //foreach($weeklist as $value){
-        foreach($daylist as $key=> $value){?>
+        //$weeklist = array("MON","TUE","WED","THU","FRI","SAT","SUN");
+        $cou = 0;
+        //foreach($re as $x =>$svalue){
+        foreach($daylist as $key=> $value){
+            ?>
             <tr><!--日付→曜日-->
                 <td id = "date<?=$key?>"><?=$dateslooklist[$value];?></td>
                 <td id = "day<?=$key?>"><?=$key?></td>
-            <span >    
+            <span>    
+            <td><?=$re[$cou]['workarea']?></td>
             <td>
-            <input type="radio" name = "work<?=$key?>" value = "1" id = "arrive<?=$key?>"checked = "checked" ><label for = "arrive<?=$key?>">出社</label>
+                <?php //その他→在宅→出社?>
+            <input type="radio" name = "work<?=$key?>" value = "1" id = "arrive<?=$key?>"checked = "" ><label id = "worklabel<?$key?>" for = "arrive<?=$key?>">出社</label>
             <input type="radio" name = "work<?=$key?>" value = "2" id = "remote<?=$key?>"><label for = "remote<?=$key?>">在宅</label>
             <input type="radio" name = "work<?=$key?>" value = "3" id = "s_other<?=$key?>"><label for = "s_other<?=$key?>">その他</label>
             <input type="radio" name = "work<?=$key?>" value = "4" id = "closed<?=$key?>"><label for = "closed<?=$key?>">休日</label>
             </td>
-            <td ><input type="text" class = "textarea" name = "company<?=$key?>"></td>
-            <td><input type="text" class = "textarea" name = "person<?=$key?>"></td>
-            <td><input type="text" class = "textarea" name = "memo<?=$key?>"></td>
-            </tr><p hidden id = "date<?=$key?>"></p><input type="hidden" id = "datepost<?=$key?>" value="?">
-            
-            <?php 
+            <td><input type="text" class = "textarea" name = "company<?=$key?>" value = "<?=$re[$cou]["com_schedule"]?>"></td>
+            <td><input type="text" class = "textarea" name = "person<?=$key?>" value = "<?=$re[$cou]['per_schedule']?>"></td>
+            <td><input type="text" class = "textarea" name = "memo<?=$key?>" value = "<?=$re[$cou]['memo']?>"></td>
+            </tr>
+            <?php
+            $cou +=1; 
+            //}
                 };
             ?>
 
@@ -122,8 +126,7 @@ try{
  
     </form>
     <!-- <input type="button" value ="先週へ" class = "regist" onclick="nextweek()"> -->
-    <input type="submit" value ="確認" class = "regist" id ="reg_check">
-    
+    <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
     </div>
 </div>
 <?php
@@ -131,6 +134,5 @@ try{
 $_SESSION["dateslist_data"] = $dateslist;
 $_SESSION["dateslooklist_data"] = $dateslooklist;
 ?>
-<script src="../schedule.js"></script>
 </body>
 </html>

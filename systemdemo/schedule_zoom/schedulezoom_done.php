@@ -1,3 +1,19 @@
+<?php
+session_start();
+session_regenerate_id(true);
+
+if(!isset($_SESSION["login"])){
+    print'ログインされていません。<br/>';
+    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
+    print'登録がまだの方<br/>';
+    print'<a href="../demosystem/index_html">登録画面へ</a>';
+    exit();
+}
+$message=$_SESSION['login_name']."さんようこそ";
+
+$message=htmlspecialchars($message);
+print ($message)
+?>
 <?php 
 try{
     require_once("../common/common.php");
@@ -27,7 +43,7 @@ try{
     $data[] = $end_time;
     $data[] = $content;
     $data[] = $zoom_member;
-    $data[] = $testuser;
+    $data[] = $_SESSION["login_id"];
     $stmt ->execute($data);
 
     $dbh = null;

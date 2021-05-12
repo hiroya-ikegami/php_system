@@ -9,7 +9,7 @@ if(!isset($_SESSION["login"])){
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
 }
-$message=$_SESSION['login']."さんようこそ";
+$message=$_SESSION['login_name']."さんようこそ";
 
 $message=htmlspecialchars($message);
 print ($message)
@@ -50,7 +50,7 @@ catch (Exception $e){
 </head>
 <body>
     <div id = "divall">
-    <h2>社員の予定 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?></h2>
+    <h2>社員の予定 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日</h2>
     <table>
         <thead>
         <tr><th>社員名</th><th>勤務場所</th><th>個人予定</th><th>メモ</th></tr>
