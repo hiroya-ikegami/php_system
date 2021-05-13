@@ -30,13 +30,17 @@ header{
 .membertext{
     width: 80%;
 }
+
+.footbutton{
+display: flex;
+}
 .regist{
-        background-color: #a8d08c;
+        color: aliceblue;
+        background-color: #646e78;
         border-radius: 10px;
-        margin: 20px;
         font-size: 15px;
         padding:10px;
         padding-left: 15px;
         padding-right: 15px;
-        left: 50%;
+       
 }
