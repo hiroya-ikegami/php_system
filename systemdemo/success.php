@@ -8,7 +8,7 @@
 <body>
 <?php
 try{
-    $name = $_POST['shimei'];
+    $name = $_POST['name'];
     $birth = $_POST['birth'];
     $mail = $_POST['mail'];
     $pass = $_POST['pass']; 
@@ -31,6 +31,7 @@ try{
     $data[] = $birth;
     $data[] = $mail;
     $data[] = $pass;
+    $pass=md5('pass');
     $stmt ->execute($data);
 
     $dbh=null;
@@ -38,13 +39,13 @@ try{
     print $name;
     print '様<br/>';
     print 'ご登録ありがとうございます。<br/>';
-<<<<<<< HEAD:systemdemo/login/success.php
-    print "<a href='../management/kanritop.html'>管理トップ画面へ</a>";
-=======
+//<<<<<<< HEAD:systemdemo/login/success.php
+    //print "<a href='../management/kanritop.html'>管理トップ画面へ</a>";
+//=======
     print '<form method="post"action="demotop.html">';
     print '<input type="submit"value="トップ画面へ">';
     print '</form>';
->>>>>>> ba364968e7f052d84d5acd21f33d4549ad531eca:systemdemo/success.php
+//>>>>>>> ba364968e7f052d84d5acd21f33d4549ad531eca:systemdemo/success.php
 
 }
   catch(Exception $e)
