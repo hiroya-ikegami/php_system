@@ -8,7 +8,7 @@
 <body>
 <?php
 try{
-    $name = $_POST['shimei'];
+    $name = $_POST['name'];
     $birth = $_POST['birth'];
     $mail = $_POST['mail'];
     $pass = $_POST['pass']; 
@@ -31,6 +31,7 @@ try{
     $data[] = $birth;
     $data[] = $mail;
     $data[] = $pass;
+    $pass=md5('pass');
     $stmt ->execute($data);
 
     $dbh=null;

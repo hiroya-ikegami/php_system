@@ -22,7 +22,7 @@
 
     if($name=="")
     {
-        print"氏名が入力されていません。<br/>";
+    print"氏名が入力されていません。<br/>";
     }else{
     print"氏名";
     print $name;
@@ -31,7 +31,7 @@
 
 if($birth=="")
 {
-      print"誕生日が入力されていません。<br/>";
+    print"誕生日が入力されていません。<br/>";
 }else{
 print"誕生日";
 print $birth;
@@ -40,7 +40,7 @@ print"<br/>";
 
 if($mail=="")
 {
-      print"メールアドレスが入力されていません。<br/>";
+    print"メールアドレスが入力されていません。<br/>";
 }else{
 print"メールアドレス";
 print $mail;
@@ -49,7 +49,7 @@ print"<br/>";
 
 if($pass=="")
 {
-      print"パスワードが入力されていません。<br/>";
+    print"パスワードが入力されていません。<br/>";
 }else{
 print"パスワード";
 print $pass;
@@ -66,7 +66,7 @@ if($name==""||$birth==""||$mail==""||$pass==""||$pass!=$pass2)
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
 }else{
-    print'<form method="post"action="login/success.php">';
+    print'<form method="post"action="success.php">';
     print '<input name="name"type="hidden"value="'.$name.'">';
 	print '<input name="birth"type="hidden"value="'.$birth.'">';
 	print '<input name="mail"type="hidden"value="'.$mail.'">';
