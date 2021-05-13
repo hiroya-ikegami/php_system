@@ -63,10 +63,17 @@ try{
 <div class = "cform">
 <div><h2>登録：</h2></div>
 zoom予定を追加しました。 <br/>
+
 </div>
+<div class = "footbutton">
 <form action="../demotop.html">
-        <input type="submit" value="トップに戻る"class = "top">
+        <input type="submit" value="トップに戻る"class = "regist">
     </form>
+<form action="./schedulezoom_form.html">
+<input type="submit" value="続けて登録" class = "regist">
+</form>
+</div>
+
 </body>
 </html>
 
