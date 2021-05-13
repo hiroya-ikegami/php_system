@@ -25,6 +25,8 @@ body{
     padding:10px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 14px;
+    margin-left: 15px;
 }
 .top{
     background-color:  #a8d08c;
@@ -41,6 +43,11 @@ h1{
 .dateform{
     display: flex;
     align-items: baseline;
+    margin: 10px;
+    margin-left: 30px;
+}
+.req_dateform{
+    margin-left: 10px;
 }
 table,
 table{

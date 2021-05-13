@@ -34,8 +34,6 @@ print ($message)
         print "<br>";
         */
     }
-
-
 //try{
 
     $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
@@ -47,7 +45,8 @@ print ($message)
     $flag2 = 0;
     $testdays = date("Y-m-d");
     $workarea = array("","出社","在宅","その他","休日");
-    $testuser = 12;
+    $testuser = $_SESSION["login_id"];
+    
     for ($i=0;$i<7;$i++){
         //
         //$selectsql = 'SELECT name FROM schedule WHERE memberid = "'.$_SESSION["login_id"].'" AND sche_date = "'.$dateslist[$i].'"';
@@ -61,6 +60,24 @@ print ($message)
         //print ("<br> selctsql ");
         //var_dump($select);
         unset($data);
+        /*
+        if(isset($post["delete"])){
+            $desql = "DELETE FROM zoom_schedule WHERE code = ?";
+            $stmt = $dbh->prepare($desql);
+            //print $post["regist"];
+            $data[] = $post["regist"];
+            $stmt ->execute($data);
+    
+            $dbh = null;
+    
+            print ("削除しました。");
+            */
+            
+        if($_POST["regist"] == true){
+            $dlsql = 'DELETE FROM schedule WHERE id = ?';
+            $stmt = $dbh->prepare($dlsql);
+            $data[] = $_POST["zoomid"];
+        }
 
         if ($select == false){
             //中身がなければ登録

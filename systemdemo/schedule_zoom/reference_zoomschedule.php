@@ -15,10 +15,6 @@ $message=htmlspecialchars($message);
 print ($message)
 ?>
 
-<form action="#" method="post">
-    <input type="date" name = "request_date">
-    <input type="submit" id = "referencesubmit">
-</form>
 
 <?php
 //var_dump($_POST);
@@ -72,7 +68,13 @@ catch (Exception $e){
 </head>
 <body>
     <div id = "divall">
-    <h2>zoom予定編集画面 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日</h2>
+    <div class ="dateform">
+        <h2>zoom予定編集画面 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日</h2>
+        <form action="#" method="post" class = "req_dateform">
+        <input type="date" name = "request_date">
+        <input type="submit" id = "referencesubmit">
+        </form>
+    </div>
     <table>
         <thead>
         <tr><th>日程</th><th>タイトル</th><th>開始時間</th><th>終了時間</th><th>内容</th><th>参加者</th><th>登録者</th></tr>
