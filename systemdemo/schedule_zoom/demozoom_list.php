@@ -67,12 +67,14 @@ print ("エラーが発生しました。");
         <form action="../demotop.html">
             <input type="submit" value="トップに戻る" class = "top">
         </form>
-        <form action="./edit_zoomschedule.php">
-        <input type="submit" value="編集" class = "top">
+        <div class = "headerbutton">
+        <form action="./edit_zoomschedule.php" class ="topform">
+        <input type="submit" value="編集" class = "topbutton">
         </form>
-        <form action="./reference_zoomschedule.php" >
-            <input type="submit" value="参照" class ="top">
+        <form action="./reference_zoomschedule.php" class = "topform">
+            <input type="submit" value="参照" class ="topbutton">
         </form>
+        </div>
     <h1>ZOOM予定表</h1>
     <?php 
      //$todate = date( "Y-m-d" ) ; // 2015/12/12

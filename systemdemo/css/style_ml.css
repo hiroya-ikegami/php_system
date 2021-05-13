@@ -15,6 +15,17 @@
 body{
     background-color: #CCCCCC;
 }
+.topform{
+    padding: 10px;
+    padding-left: 20px;
+}
+.topbutton{
+    background-color:  #a8d08c;
+    border-radius: 10px;
+    padding:10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .top{
     background-color:  #a8d08c;
     margin-top: 20px;
@@ -26,6 +37,10 @@ h1{
     margin-left: 15%;
     margin-bottom: 10px;
     margin-top: 5px;
+}
+.dateform{
+    display: flex;
+    align-items: baseline;
 }
 table,
 table{
