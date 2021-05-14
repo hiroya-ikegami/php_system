@@ -17,7 +17,7 @@ try{
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
-
+    $pass= md5($pass);
     $dsn= 'mysql:dbname=task_zoom;host=localhost';
     $user= 'root';
     $password= '0305';
@@ -31,7 +31,7 @@ try{
     $data[] = $birth;
     $data[] = $mail;
     $data[] = $pass;
-    $pass=md5('pass');
+    //$pass=md5('pass');
     $stmt ->execute($data);
 
     $dbh=null;
@@ -39,7 +39,7 @@ try{
     print $name;
     print '様<br/>';
     print 'ご登録ありがとうございます。<br/>';
-    print "<a href='../management/kanritop.html'>管理トップ画面へ</a>";
+    print "<a href='./management/kanritop.html'>管理トップ画面へ</a>";
     print '<form method="post"action="demotop.html">';
     print '<input type="submit"value="トップ画面へ">';
     print '</form>';
