@@ -59,6 +59,9 @@ catch (Exception $e){
     <title>社員予定</title>
 </head>
 <body>
+    <form action="../demotop.php">
+        <input type="submit" value="トップに戻る"class = "top">
+    </form>
     <div id = "divall">
     <h2>社員予定一覧 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日 </h2>
     <div class ="dateform">  

@@ -82,7 +82,7 @@ try{
             <form action="../demotop.php">
                 <input type="submit" value="トップに戻る"class = "top">
             </form>
-            <form action="./schedule_check_edit.php">
+            <form action="./schedule_edit.php">
                 <input type="submit" value="登録した予定の編集" class = "edit">
             </form>
         </div>
@@ -103,7 +103,9 @@ try{
         $daylist = array ( "MON"=>0 ,"TUE"=>1,"WED"=>2,"THU"=>3,"FRI"=>4,"SAT"=>5,"SUN"=>6);
         $weeklist = array("MON","TUE","WED","THU","FRI","SAT","SUN");
         //foreach($weeklist as $value){
-        foreach($daylist as $key=> $value){?>
+        foreach($daylist as $key=> $value){
+            //$_SESSION["zoom_id"]= $re[$value]["id"];?>
+            
             <tr><!--日付→曜日-->
                 <td id = "date<?=$key?>"><?=$dateslooklist[$value];?></td>
                 <td id = "day<?=$key?>"><?=$key?></td>
