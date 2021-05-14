@@ -9,21 +9,19 @@ if(!isset($_SESSION["login"])){
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
 }
-$message=$_SESSION['login_name']."さんようこそ";
+//$message=$_SESSION['login_name']."さんようこそ";
 
-$message=htmlspecialchars($message);
-print ($message)
+//$message=htmlspecialchars($message);
+//print ($message)
 ?>
 <?php 
-    if(isset($_SESSION["work_data"])){
+    if(isset($_SESSION["work_data"] ,$_SESSION["company_data"],$_SESSION["person_data"],$_SESSION["memo_data"],$_SESSION["dateslist_data"],$_SESSION["dlregist"])){
         $work = $_SESSION["work_data"];
         $company = $_SESSION["company_data"];
         $person  = $_SESSION["person_data"];
         $memo = $_SESSION["memo_data"];
         $dateslist = $_SESSION["dateslist_data"];
-        $zoom_id = $_SESSION["zoom_id"];
         $dl_check =$_SESSION["dlregist"];
-
         /*
         print_r($dateslist);
         print "<br>";
@@ -36,6 +34,16 @@ print ($message)
         print_r($memo);
         print "<br>";
         */
+    }else{
+        print ("登録画面からやり直してください。"); 
+    ?>
+    <html> <form action="./schedule_form.php"><input type="submit" value="戻る">
+    </form> </html>
+    <?php    
+        exit;
+    }
+    if(isset($_SESSION["zoom_id"])){
+        $zoom_id = $_SESSION["zoom_id"];
     }
 //try{
 
