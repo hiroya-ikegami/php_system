@@ -50,11 +50,11 @@ $stmt = $dbh->prepare($sql);
 $data[] = $todate;
 $stmt ->execute($data);
 $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-//print_r($re);
+print_r($re);
 
 }
 catch (Exception $e){
-//$sql = SELECT title, s_date, start_time,end_time,content,participant,member.name FROM zoom_schedule  INNER JOIN member ON zoom_schedule.memberid = member.memberid WHERE zoom_schedule.s_date = "2021-05-12";
+print ("接続できません");
 }
 ?>
 <!DOCTYPE html>

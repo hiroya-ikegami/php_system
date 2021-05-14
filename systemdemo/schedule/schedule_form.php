@@ -76,10 +76,10 @@ try{
 <body>
     <div id = "divall">
         <div class = "bottombutton">
-            <form action="../demotop.html">
+            <form action="../demotop.php">
                 <input type="submit" value="トップに戻る"class = "top">
             </form>
-            <form action="./schedule_edit.php">
+            <form action="./schedule_check_edit.php">
                 <input type="submit" value="登録した予定の編集" class = "edit">
             </form>
         </div>

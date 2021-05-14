@@ -21,6 +21,9 @@ print ($message)
         $person  = $_SESSION["person_data"];
         $memo = $_SESSION["memo_data"];
         $dateslist = $_SESSION["dateslist_data"];
+        $zoom_id = $_SESSION["zoom_id"];
+        $dl_check =$_SESSION["dlregist"];
+
         /*
         print_r($dateslist);
         print "<br>";
@@ -46,7 +49,7 @@ print ($message)
     $testdays = date("Y-m-d");
     $workarea = array("","出社","在宅","その他","休日");
     $testuser = $_SESSION["login_id"];
-    
+    //var_dump($dl_check);
     for ($i=0;$i<7;$i++){
         //
         //$selectsql = 'SELECT name FROM schedule WHERE memberid = "'.$_SESSION["login_id"].'" AND sche_date = "'.$dateslist[$i].'"';
@@ -59,25 +62,17 @@ print ($message)
         $select = $stmt->fetch(PDO::FETCH_ASSOC);
         //print ("<br> selctsql ");
         //var_dump($select);
+        
         unset($data);
-        /*
-        if(isset($post["delete"])){
-            $desql = "DELETE FROM zoom_schedule WHERE code = ?";
-            $stmt = $dbh->prepare($desql);
-            //print $post["regist"];
-            $data[] = $post["regist"];
-            $stmt ->execute($data);
-    
-            $dbh = null;
-    
-            print ("削除しました。");
-            */
-            
-        if($_POST["regist"] == true){
+        //チェックが入っているデータを策h所
+        if($dl_check[$i] == true){
             $dlsql = 'DELETE FROM schedule WHERE id = ?';
             $stmt = $dbh->prepare($dlsql);
-            $data[] = $_POST["zoomid"];
-        }
+            $data[] = $zoom_id[$i];
+            $stmt ->execute($data);
+            unset($data);
+            
+            }
 
         if ($select == false){
             //中身がなければ登録
@@ -92,8 +87,10 @@ print ($message)
             $data[] = $memo[$i];
             $data[] = $_SESSION["login_id"];
             //$data[] = $_SESSION['login'];
+
             //送信
             $stmt ->execute($data);
+
             //INSERT INTO `schedule` (`sche_date`, `workarea`, `com_schedule`, `per_schedule`, `memo`, `user`) VALUES (NULL, current_timestamp(), '2021-05-10', '在宅', '帰社会', '夕方会議', '開発', '12');
             $flag1 = 1;
             unset($data);
@@ -137,13 +134,15 @@ print ($message)
         print '<h2>更新</h2>';
         print '予定を更新しました。 <br/>';
     }
-    
-    
-    
+    unset($_SESSION["work_data"]);
+    unset($_SESSION["company_data"]);
+    unset($_SESSION["person_data"]);
+    unset($_SESSION["memo_data"]);
+    unset($_SESSION["dateslist_data"]);
+    unset($_SESSION["zoom_id"]);
 
 /*
-
-}
+       }
 
 catch(Exception $e)
 {
@@ -154,7 +153,7 @@ exit();
 */
 ?>
 <html>
-<form action="../demotop.html">
+<form action="../demotop.php">
             <input type="submit" value="トップに戻る"class = "top">
         </form>
 

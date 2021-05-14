@@ -51,7 +51,7 @@ print ($message)
 <table>
 <tr>
 
-<td><p class="btn3"><a href="./schedule/member_schedulelist.php">社員の予定</a>
+<td class = "left_btn"><p class="btn3"><a href="./schedule/member_schedulelist.php">社員の予定</a>
 
 <p class="btn2"><a href="./schedule/schedule_form.php">予定入力</a>
 

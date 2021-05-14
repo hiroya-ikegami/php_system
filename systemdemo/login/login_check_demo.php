@@ -38,7 +38,7 @@ if($mail==''||$password=='')
 if($flag == 0)
 {
  print "ログインしました。";
- print "<a href='../demotop.html'>トップへ</a>";
+ print "<a href='../demotop.php>トップへ</a>";
 }
 ?>
 </body>

@@ -100,7 +100,9 @@ display:inline-block;
 {
 opacity:0.7;
 }
-
+.left_btn{
+	padding-right:70px;
+}
 /*予約入力ボタン*/
 
 #pageBodyMain .btn2

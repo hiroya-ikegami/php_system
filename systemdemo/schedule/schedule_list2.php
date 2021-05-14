@@ -36,12 +36,28 @@ $work = array($post['workMON'] , $post['workTUE'],$post['workWED'],$post['workTH
 $person = array($post['personMON'] , $post['personTUE'],$post['personWED'],$post['personTHU'],$post['personFRI'],$post['personSAT'],$post['personSUN']);
 $memo = array($post['memoMON'] , $post['memoTUE'],$post['memoWED'],$post['memoTHU'],$post['memoFRI'],$post['memoSAT'],$post['memoSUN']);
 $company = array($post['companyMON'] , $post['companyTUE'],$post['companyWED'],$post['companyTHU'],$post['companyFRI'],$post['companySAT'],$post['companySUN']);
+$ischeck = array('registMON','registTUE','regist','registWED','registTHU','registFRI','registSAT');
+$dl_check = array();
+foreach ($ischeck as $value){
+    if (isset($post[$value])){
+        array_push($dl_check,$post[$value]);
+    
+    }else{
+        array_push($dl_check,null);
+        }
+}
+var_dump($dl_check);
+//$dl_check = array($post['registMON'],$post['registTUE'],$post['registWED'],$post['registTHU'],$post['registFRI'],$post['registSAT'],$post['registSUN']);
+
 $_SESSION["work_data"] = $work;
 $_SESSION["person_data"] = $person;
 $_SESSION["memo_data"] = $memo;
 $_SESSION["company_data"] = $company;
+$_SESSION["dlregist"]= $dl_check;
 $dateslist = $_SESSION["dateslist_data"];
 $dateslooklist = $_SESSION["dateslooklist_data"];
+
+
 var_dump($work);
 print_r($work);
 
@@ -71,7 +87,7 @@ $monday = date("Y-m-d",strtotime('last monday'));
 </head>
 <body>
     <div id = "divall">
-        <form action="../demotop.html">
+        <form action="../demotop.php">
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="./schedule_done.php" method="post">

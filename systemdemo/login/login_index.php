@@ -40,7 +40,7 @@ $_SESSION['login_id']= $rec["memberid"];
 $_SESSION['login_name'] = $rec["name"];
 
 print('ok');
-    header('Location:../demotop.html');
+    header('Location:../demotop.php');
     exit();
 }
 
