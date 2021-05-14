@@ -66,7 +66,7 @@ zoom予定を追加しました。 <br/>
 
 </div>
 <div class = "footbutton">
-<form action="../demotop.html">
+<form action="../demotop.php">
         <input type="submit" value="トップに戻る"class = "regist">
     </form>
 <form action="./schedulezoom_form.html">

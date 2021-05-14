@@ -6,7 +6,7 @@ if(!isset($_SESSION["login"])){
     print'ログインされていません。<br/>';
     print'<a href="./login/login.html">ログイン画面へ</a><br>';
     print'登録がまだの方<br/>';
-    print'<a href="../demosystem/index_html">登録画面へ</a>';
+    print'<a href="./index_html">登録画面へ</a>';
     exit();
 }
 $message=$_SESSION['login_name']."さんようこそ";
@@ -41,7 +41,7 @@ print ($message)
 
 <table>
 <tr>
-<td><p class="btn7"><a href="logout.html">ログアウト</a></td>
+<td><p class="btn7"><a href="./login/logout.php">ログアウト</a></td>
 
 <td><p class="btn6"><a href="setei.html">設定</a></td>
 
