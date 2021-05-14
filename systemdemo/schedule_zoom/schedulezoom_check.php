@@ -3,6 +3,7 @@ require_once("../common/common.php");
 $post = sanitaize($_POST);
 
 $title = $post["title"];
+//カレンダー
 $calendar = $post["calendar"];
 $start_time = $post["start_time"];
 $end_time = $post["end_time"];
