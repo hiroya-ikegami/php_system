@@ -53,17 +53,18 @@ try{
  
 
     //WHERE schedule.sche_date BETWEEN  "2021-05-10" AND "2021-05-16" AND schedule.memberid ="3"
-    $sql = 'SELECT name, workarea, com_schedule,per_schedule, memo FROM schedule INNER JOIN member ON schedule.memberid = member.memberid WHERE schedule.sche_date BETWEEN "'.$dateslist[0].'" AND "' .$dateslist[6].'" AND schedule.memberid ="'.$_SESSION["login_id"].'"';
+    $sql = 'SELECT id,name, workarea, com_schedule,per_schedule, memo FROM schedule INNER JOIN member ON schedule.memberid = member.memberid WHERE schedule.sche_date BETWEEN "'.$dateslist[0].'" AND "' .$dateslist[6].'" AND schedule.memberid ="'.$_SESSION["login_id"].'"';
     
     //print("<br>".$sql."<br>");
     $stmt = $dbh->prepare($sql);
     $stmt ->execute();
     $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-    //print_r($re);
+    print_r($re);
     
     }
     catch (Exception $e){
-    
+    print "障害が発生しています";
+    exit;
     }
 
 //print ("<br>".$re[5]["com_schedule"]);
@@ -83,13 +84,11 @@ try{
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="schedule_list2.php" method="post">
-    <h1 >予定編集画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    
-        <table>
-        <input type="submit" value ="確認" class = "regist" id ="reg_check">
+    <h1 >予定編集画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>
+        <table class = "zoom_editform">
         <thead>
-        <tr><th>日</th><th>曜日</th><th>勤務場所</th><th>変更</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
+        <tr><th></th><th>日</th><th>曜日</th><th>勤務場所</th><th>変更</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
         </thead>
-        <input type="hidden" value="<?php print_r($re);?>">
         <?php
         //1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6,7 => 7
         $daylist = array ( "MON"=>0 ,"TUE"=>1,"WED"=>2,"THU"=>3,"FRI"=>4,"SAT"=>5,"SUN"=>6);
@@ -98,10 +97,13 @@ try{
         //foreach($re as $x =>$svalue){
         foreach($daylist as $key=> $value){
             ?>
-            <tr><!--日付→曜日-->
+            <tr>
+                <input type="hidden" name="zoomid" value = "<?=$re[$cou]["id"]?>">
+                <td><input type="radio" name="regist" id="regist<?=$key?>"></td>
+                <!--日付→曜日-->
                 <td id = "date<?=$key?>"><?=$dateslooklist[$value];?></td>
                 <td id = "day<?=$key?>"><?=$key?></td>
-            <span>    
+ 
             <td><?=$re[$cou]['workarea']?></td>
             <td>
                 <?php //その他→在宅→出社?>
@@ -121,9 +123,9 @@ try{
             ?>
 
     </table>
-
         <div class = "bottombutton" onsubmit="">
- 
+        <input type="submit" value ="変更" class = "regist" id ="reg_check">
+        <input type="submit" value="削除" class = "dlregist" id = "dlreg_check">
     </form>
     <!-- <input type="button" value ="先週へ" class = "regist" onclick="nextweek()"> -->
     <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">

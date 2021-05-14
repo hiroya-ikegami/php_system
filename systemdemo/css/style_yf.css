@@ -15,6 +15,9 @@ body{
 
 
 }
+.zoom_editform{
+    width:1200px;
+}
 .edit{
     background-color:  #ED6A5A;
     margin-top: 20px;

@@ -7,7 +7,7 @@
 <h1><font color="white": size="12px">登録確認</font></h1>
 <body bgcolor="lightblue">
     <?php
-    $shimei=$_POST['shimei'];
+    $shimei=$_POST['name'];
     $birth=$_POST['birth'];
     $mail=$_POST['mail'];
     $pass=$_POST['pass'];
