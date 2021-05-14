@@ -15,15 +15,20 @@ $message=htmlspecialchars($message);
 print ($message)
 ?>
 <?php 
-$ym = (isset($get));
 //日付取得 
-$toYmd = date( "Y-m-d" ) ;//2021-05-07:
-//print "今日".$toYm."<br>";
-//0123456 5
-$targetweekday = date("w",strtotime($toYmd));
-//print $targetweekday."<br>";
+//print($_POST["request_date"]."の予定を表示");
+//カレンダーから指定した日付がある場合その週へない場合は今日を含む一週間の予定を表示。
+if(isset($_POST['request_date'])){
+    $toYmd = $_POST["request_date"];
+}
+
+else{
+    $toYmd = date("Y-m-d");
+}
+
+//$toYmd = date( "Y-m-d" ) ;
 $dateslist =[];
-$monday = date("Y-m-d",strtotime('last monday'));
+$monday = date("Y-m-d",strtotime('last monday',strtotime($toYmd)));
 //print "月曜日".$monday."<br>";
 //月曜日だった場合は今日から一週間で、前の月曜日から一週間の日程取得、
 if (date("w") == 1){
@@ -61,8 +66,6 @@ try{
     catch (Exception $e){
     
     }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,9 +86,13 @@ try{
                 <input type="submit" value="登録した予定の編集" class = "edit">
             </form>
         </div>
-
-    <form action="schedule_list2.php" method="post">
-    <h1 >予定入力画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>    
+    <h1 >予定入力画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1> 
+    <h3><?=$toYmd?>の予定を表示中</h3>
+        <form action="#" method="post" class = "req_dateform">
+            <input type="date" name = "request_date">
+            <input type="submit" id = "referencesubmit">
+        </form>
+        <form action="schedule_list2.php" method="post">
         <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
         <table>
         <thead>

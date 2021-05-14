@@ -15,20 +15,26 @@ $message=htmlspecialchars($message);
 print ($message)
 ?>
 <?php 
-$ym = (isset($get));
 //日付取得 
-$toYmd = date( "Y-m-d" ) ;//2021-05-07:
-//print "今日".$toYm."<br>";
-//0123456 5
+//$toYmd = date( "Y-m-d" ) ;
+if(isset($_POST['request_date'])){
+    print($_POST["request_date"]."の予定を表示");
+    $toYmd = $_POST["request_date"];
+}
+else{
+    //print("今日の予定を表示");
+    $toYmd = date("Y-m-d");
+}
+
 $targetweekday = date("w",strtotime($toYmd));
 //print $targetweekday."<br>";
 $dateslist =[];
-$monday = date("Y-m-d",strtotime('last monday'));
+$monday = date("Y-m-d",strtotime('last monday',strtotime($toYmd)));
+//$monday = date("Y-m-d",strtotime('last monday'));
 //print "月曜日".$monday."<br>";
 //月曜日だった場合は今日から一週間で、前の月曜日から一週間の日程取得、
 if (date("w") == 1){
-    for ($i=0; $i<=6; $i++ )
-    {
+    for ($i=0; $i<=6; $i++ ){
     $times = "+" .$i. "days";
     $dateslist[] = date ("Y-m-d",strtotime($toYmd.$times));
     $dateslooklist[] = date("m/d",strtotime($toYmd.$times));
@@ -44,7 +50,6 @@ else{
 }
 //print_r($dateslist);
 try{
-    $testid = 3;
     $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
     $user = 'root';
     $password = '0305';
@@ -86,6 +91,12 @@ try{
     <div id = "divall">
         <form action="../demotop.php">
             <input type="submit" value="トップに戻る"class = "top">
+        </form>
+
+    <h3><?=$toYmd?>の予定を表示中</h3>
+        <form action="#" method="post" class = "req_dateform">
+            <input type="date" name = "request_date">
+            <input type="submit" id = "referencesubmit">
         </form>
     <form action="schedule_list2.php" method="post">
     <h1 >予定編集画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>
