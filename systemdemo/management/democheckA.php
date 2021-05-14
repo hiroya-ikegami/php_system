@@ -7,24 +7,24 @@
 <h1><font color="white": size="12px">登録確認</font></h1>
 <body bgcolor="lightblue">
     <?php
-    $shimei=$_POST['name'];
+    $name=$_POST['name'];
     $birth=$_POST['birth'];
     $mail=$_POST['mail'];
     $pass=$_POST['pass'];
     $pass2=$_POST['pass2'];
 
-    $shimei=htmlspecialchars($shimei);
+    $shimei=htmlspecialchars($name);
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
     $pass2=htmlspecialchars($pass2);
 
-    if($shimei=="")
+    if($name=="")
     {
         print"氏名が入力されていません。<br/>\n";
     }else{
     print"氏名";
-    print $shimei;
+    print $name;
     print"<br/>";
 }
 
@@ -59,14 +59,14 @@ if($pass!=$pass2){
     print"パスワードが一致しません。<br/>\n";
 }
 
-if($shimei==""||$birth==""||$mail==""||$pass==""||$pass=="")
+if($name==""||$birth==""||$mail==""||$pass==""||$pass=="")
 {
     print"<form>";
     print'<input type="button"onclick="history.back()"value="戻る">';
     print"</from>";
 }else{
     print'<form method="post"action="../login/success.php">';
-    print '<input name="shimei"type="hidden"value="'.$shimei.'">';
+    print '<input name="shimei"type="hidden"value="'.$name.'">';
 	print '<input name="birth"type="hidden"value="'.$birth.'">';
 	print '<input name="mail"type="hidden"value="'.$mail.'">';
 	print '<input name="pass"type="hidden"value="'.$pass.'">';
