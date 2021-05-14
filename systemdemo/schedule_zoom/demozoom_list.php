@@ -152,11 +152,9 @@ print ("エラーが発生しました。");
             }?>
     </table>
     <div class = "bottombutton">
-        <input type="submit" value ="←前の週" class = "regist">
         <form action="./schedulezoom_form.html">
         <input type="submit" value ="zoom予約" class = "regist">
         </form>
-        <input type="submit" value ="次の週→" class = "regist">
     </div>
     
 </div>

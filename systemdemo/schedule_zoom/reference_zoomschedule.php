@@ -15,7 +15,6 @@ $message=htmlspecialchars($message);
 print ($message)
 ?>
 
-
 <?php
 //var_dump($_POST);
 if(isset($_POST['request_date'])){
@@ -50,7 +49,7 @@ $stmt = $dbh->prepare($sql);
 $data[] = $todate;
 $stmt ->execute($data);
 $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-print_r($re);
+//print_r($re);
 
 }
 catch (Exception $e){
@@ -67,6 +66,9 @@ print ("接続できません");
     <title>社員予定</title>
 </head>
 <body>
+<form action="../demotop.php">
+            <input type="submit" value="トップに戻る" class = "top">
+        </form>
     <div id = "divall">
     <div class ="dateform">
         <h2>zoom予定編集画面 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日</h2>

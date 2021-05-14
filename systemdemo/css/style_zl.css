@@ -99,7 +99,7 @@ table{
 }
 .bottombutton{
 display: flex;
-justify-content: space-between;
+justify-content: center;
 }
 .regist{
     background-color: #a8d08c;
