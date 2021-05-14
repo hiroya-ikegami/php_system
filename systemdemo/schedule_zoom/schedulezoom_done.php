@@ -19,7 +19,7 @@ try{
     require_once("../common/common.php");
     $post = $_POST;
     $title = $post["title"];
-    $calendar = $post["calendar"];
+    $s_date = $post["s_date"];
     $start_time = $post["start_time"];
     $end_time = $post["end_time"];
     $content =$post["content"];
@@ -32,18 +32,19 @@ try{
     $dbh = new PDO($dsn,$user,$password);
     $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     //$sql = 'INSERT INTO zoom_schedule(name,password) VALUES (?,?)';
-    $testsql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,memberid) VALUES('.$title.",".$calendar.",".$start_time.",".$end_time.",".$content.",".$zoom_member.",".$testuser.")";
+    $testsql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,memberid) VALUES('.$title.",".$s_date.",".$start_time.",".$end_time.",".$content.",".$zoom_member.",".$testuser.")";
     //print $testsql;
     //print ($title.$calendar.$start_time.$end_time.$content.$member.$testuser);
     $sql = 'INSERT INTO zoom_schedule(title,s_date,start_time,end_time,content,participant,memberid) VALUES(?,?,?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
     $data[] = $title;
-    $data[] = $calendar;
+    $data[] = $s_date;
     $data[] = $start_time;
     $data[] = $end_time;
     $data[] = $content;
     $data[] = $zoom_member;
     $data[] = $_SESSION["login_id"];
+    echo ($sql);
     $stmt ->execute($data);
 
     $dbh = null;

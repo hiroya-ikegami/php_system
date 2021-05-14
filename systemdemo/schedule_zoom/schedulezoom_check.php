@@ -1,14 +1,25 @@
 <?php
 require_once("../common/common.php");
-$post = sanitaize($_POST);
+/*$post = sanitaize($_POST);
 
 $title = $post["title"];
-$calendar = $post["calendar"];
+$s_date = $post["s_date"];
 $start_time = $post["start_time"];
 $end_time = $post["end_time"];
 $content =$post["content"];
-$member = $post["member"];
-
+$member = $post["member"];*/
+$title=$_POST["title"];
+$s_date=$_POST["s_date"];
+$start_time=$_POST["start_time"];
+$end_time=$_POST["end_time"];
+$content=$_POST["content"];
+$member=$_POST["member"];
+echo $title." ";
+echo $s_date." ";
+echo $start_time." ";
+echo $end_time." ";
+echo $content." ";
+echo $member;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,7 +40,7 @@ $member = $post["member"];
         <form action="schedulezoom_done.php" method ="post">
             <span>タイトル:</span><span><?=$title?></span><br>
             <br>
-            <span>日付:</span><span><?=$calendar?></span><br>
+            <span>日付:</span><span><?=$s_date?></span><br>
             <br>
             <span>時間:</span><span><?=$start_time?></span>~<span><?=$end_time?></span><br>
             <br>
@@ -40,7 +51,7 @@ $member = $post["member"];
             <span><?=$member?></span><br>
             <br>
             <input type="hidden" name = "title" value ="<?=$title?>">
-            <input type="hidden" name = "calendar" value ="<?=$calendar?>">
+            <input type="hidden" name = "s_date" value ="<?=$s_date?>">
             <input type="hidden" name = "start_time" value ="<?=$start_time?>">
             <input type="hidden" name = "end_time" value ="<?=$end_time?>">
             <input type="hidden" name = "content" value ="<?=$content?>">
