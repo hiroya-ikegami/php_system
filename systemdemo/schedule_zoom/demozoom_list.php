@@ -64,7 +64,7 @@ print ("エラーが発生しました。");
 </head>
 <body>
     <div id = "divall">
-        <form action="../demotop.html">
+        <form action="../demotop.php">
             <input type="submit" value="トップに戻る" class = "top">
         </form>
         <div class = "headerbutton">

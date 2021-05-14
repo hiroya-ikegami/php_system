@@ -15,7 +15,17 @@ $message=htmlspecialchars($message);
 print ($message)
 ?>
 <?php
-$todate = date("Y-m-d");
+
+if(isset($_POST['request_date'])){
+    print($_POST["request_date"]."の予定を表示");
+    $todate = $_POST["request_date"];
+}
+
+else{
+    //print("今日の予定を表示");
+    $todate = date("Y-m-d");
+}
+//$todate = date("Y-m-d");
 //print $todate;
 try{
 $dsn = 'mysql:dbname=task_zoom;host=localhost;charaset=utf8';
@@ -50,7 +60,14 @@ catch (Exception $e){
 </head>
 <body>
     <div id = "divall">
-    <h2>社員の予定 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日</h2>
+    <h2>社員予定一覧 <?=date("Y")?>年<?=date("m")?>月<?=date("d")?>日 </h2>
+    <div class ="dateform">  
+        <h3><?=$todate?>の予定を表示中</h3>
+        <form action="#" method="post" class = "req_dateform">
+            <input type="date" name = "request_date">
+            <input type="submit" id = "referencesubmit">
+        </form>
+    </div>
     <table>
         <thead>
         <tr><th>社員名</th><th>勤務場所</th><th>個人予定</th><th>メモ</th></tr>
