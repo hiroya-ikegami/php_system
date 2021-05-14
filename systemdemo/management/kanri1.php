@@ -17,38 +17,38 @@
 <?php
 try{
 $data=[];
-$datai=[];
 $dsn='mysql:dbname=task_zoom;host=localhost;charset=utf8';
 $user="root";
 $password="0305";
 $dbh=new PDO($dsn,$user,$password);
 $dbh ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT memberid,name,birth,mail,pass FROM member WHERE memberid IN(?,?,?,?,?)';
+$sql='SELECT*FROM member ';
 $stmt=$dbh->prepare($sql);
+$stmt->execute($data);
 
-$data[]=$datai['memberid'];
-$data[]=$datai['name'];
-$data[]=$datai['birth'];
-$data[]=$datai['mail'];
-$data[]=$data['pass'];
-while($data['memberid']>100){
-  //echo'<p>'.$data['id'].':'.$data['name'].':'.$data['birth'].':'.$data['mail'].':'.$data['pass']."</p>\n";
-  echo '<tr>';
-  echo '<td>'.$datai['name'].'</td>';
-  echo '<td>'.$datai['birth'].'</td>';
-  echo '<td>'.$datai['mail'].'</td>';
-  echo '<td>'.$datai['pass'].'</td>';
+while(1)
+{
+  $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+  if($rec==false){
+    break;
+  }
+    echo '<tr>';
+  echo '<td>'.$rec['name'].'</td>';
+  echo '<td>'.$rec['birth'].'</td>';
+  echo '<td>'.$rec['mail'].'</td>';
+  echo '<td>'.$rec['pass'].'</td>';
   echo '</tr>';
 }
-$stmt->execute($data);
 $dbh=null;
 }
 catch(Exception $e){
 print("errorが発生しました。");
 }
-?>
 
+?>
+<br/>
+<a href="kanritop.html">管理者トップへ戻る</a>
 </header>
 </div>
 
