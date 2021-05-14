@@ -17,7 +17,7 @@ try{
     $birth=htmlspecialchars($birth);
     $mail=htmlspecialchars($mail);
     $pass=htmlspecialchars($pass);
-
+    $pass= md5($pass);
     $dsn= 'mysql:dbname=task_zoom;host=localhost';
     $user= 'root';
     $password= '0305';
@@ -31,7 +31,7 @@ try{
     $data[] = $birth;
     $data[] = $mail;
     $data[] = $pass;
-    $pass=md5('pass');
+    //$pass=md5('pass');
     $stmt ->execute($data);
 
     $dbh=null;
