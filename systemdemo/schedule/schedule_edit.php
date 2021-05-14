@@ -59,8 +59,12 @@ try{
     $stmt = $dbh->prepare($sql);
     $stmt ->execute();
     $re = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-    print_r($re);
-    
+
+    //print_r($re);
+    if (empty($re)){
+        print ("  予定が登録されていません");
+    }
+    error_reporting(E_ALL & ~E_NOTICE);
     }
     catch (Exception $e){
     print "障害が発生しています";
@@ -80,11 +84,12 @@ try{
 </head>
 <body>
     <div id = "divall">
-        <form action="../demotop.html">
+        <form action="../demotop.php">
             <input type="submit" value="トップに戻る"class = "top">
         </form>
     <form action="schedule_list2.php" method="post">
     <h1 >予定編集画面　<span><?=date("Y")?></span>年<span ><?=date("m")?></span>月<span><?=date("d")?></span>日</h1>
+    <h2>削除する項目にチェックを入れてください　登録情報変更の場合は選択しないでください。</h2>
         <table class = "zoom_editform">
         <thead>
         <tr><th></th><th>日</th><th>曜日</th><th>勤務場所</th><th>変更</th><th >社内予定</th><th class="leftpadding">個人予定</th><th class = "leftpadding">メモ</th></tr>
@@ -96,10 +101,11 @@ try{
         $cou = 0;
         //foreach($re as $x =>$svalue){
         foreach($daylist as $key=> $value){
+            $_SESSION["zoom_id"]= $re[$cou]["id"];
             ?>
             <tr>
                 <input type="hidden" name="zoomid" value = "<?=$re[$cou]["id"]?>">
-                <td><input type="radio" name="regist" id="regist<?=$key?>"></td>
+                <td><input type="checkbox" name="regist<?=$key?>" id="regist<?=$key?>"></td>
                 <!--日付→曜日-->
                 <td id = "date<?=$key?>"><?=$dateslooklist[$value];?></td>
                 <td id = "day<?=$key?>"><?=$key?></td>
@@ -125,7 +131,7 @@ try{
     </table>
         <div class = "bottombutton" onsubmit="">
         <input type="submit" value ="変更" class = "regist" id ="reg_check">
-        <input type="submit" value="削除" class = "dlregist" id = "dlreg_check">
+        <input type="submit" value="削除" class = "regist" id = "dlreg_check">
     </form>
     <!-- <input type="button" value ="先週へ" class = "regist" onclick="nextweek()"> -->
     <input type="button" value = "次週へ" class = "regist" onclick="lastweek()">
