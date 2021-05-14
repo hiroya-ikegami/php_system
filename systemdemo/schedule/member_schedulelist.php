@@ -3,8 +3,8 @@ session_start();
 session_regenerate_id(true);
 
 if(!isset($_SESSION["login"])){
-    print'ログインされていません。<br/>';
-    print'<a href="../demosystem/login/login_check.php">ログイン画面へ</a>';
+  
+    
     print'登録がまだの方<br/>';
     print'<a href="../demosystem/index_html">登録画面へ</a>';
     exit();
