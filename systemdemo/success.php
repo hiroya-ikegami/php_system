@@ -39,7 +39,7 @@ try{
     print $name;
     print '様<br/>';
     print 'ご登録ありがとうございます。<br/>';
-    print "<a href='../management/kanritop.html'>管理トップ画面へ</a>";
+    print "<a href='./management/kanritop.html'>管理トップ画面へ</a>";
     print '<form method="post"action="demotop.html">';
     print '<input type="submit"value="トップ画面へ">';
     print '</form>';
